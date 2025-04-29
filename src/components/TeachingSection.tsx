@@ -1,5 +1,5 @@
 
-import { Graduation, School, University } from "lucide-react";
+import { GraduationCap, School, University } from "lucide-react";
 
 const TeachingSection = () => {
   const courses = [
@@ -19,7 +19,7 @@ const TeachingSection = () => {
       title: "Evidence-Based Medicine",
       level: "Medical Students",
       description: "Teaching critical appraisal of medical literature and application of evidence in clinical decision-making.",
-      icon: <Graduation className="h-6 w-6" />
+      icon: <GraduationCap className="h-6 w-6" />
     }
   ];
 
