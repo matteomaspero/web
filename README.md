@@ -1,73 +1,51 @@
-# Welcome to your Lovable project
 
-## Project info
+# Matteo Maspero - Academic Portfolio Website
 
-**URL**: https://lovable.dev/projects/f3fd8c41-8a7c-4d2b-a601-90ada784fa30
+This is the source code for Matteo Maspero's academic portfolio website, showcasing research, publications, talks, and teaching activities at UMC Utrecht.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- Responsive design for all device sizes
+- Markdown-based content management for easy updates
+- Sections for Research, Publications, Talks, Teaching, and Contact information
+- Automatic deployment to GitHub Pages
 
-**Use Lovable**
+## Technology Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f3fd8c41-8a7c-4d2b-a601-90ada784fa30) and start prompting.
+- React
+- TypeScript
+- Tailwind CSS
+- shadcn/ui components
+- Vite
 
-Changes made via Lovable will be committed automatically to this repo.
+## Local Development
 
-**Use your preferred IDE**
+To run the website locally:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```bash
+# Install dependencies
+npm install
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+The website is automatically deployed to GitHub Pages when changes are pushed to the main branch.
 
-**Use GitHub Codespaces**
+## Content Management
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+All content is stored in Markdown files in the `src/content` directory:
+- `hero.md`: Main hero section content
+- `research.md`: Research focus and projects
+- `publications.md`: Academic publications
+- `talks.md`: Conference and invited talks
+- `teaching.md`: Teaching activities and student supervision
+- `contact.md`: Contact information
 
-## What technologies are used for this project?
+To update any section, simply edit the corresponding Markdown file.
 
-This project is built with:
+## License
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/f3fd8c41-8a7c-4d2b-a601-90ada784fa30) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project is licensed under the MIT License.

@@ -6,6 +6,12 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useMarkdownContent } from '@/utils/markdownLoader';
 
+// Get the base URL for assets - important for GitHub Pages deployment
+const getBaseUrl = () => {
+  const baseUrl = import.meta.env.BASE_URL || '/';
+  return baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+};
+
 const Hero = () => {
   const { content, isLoading } = useMarkdownContent('/src/content/hero.md');
 
