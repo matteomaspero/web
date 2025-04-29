@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useMarkdownContent } from '@/utils/markdownLoader';
 
 const ResearchSection = () => {
-  const { content, isLoading } = useMarkdownContent('/src/content/research.md');
+  const { content, isLoading } = useMarkdownContent('src/content/research.md');
   
   const researchAreas = [
     {

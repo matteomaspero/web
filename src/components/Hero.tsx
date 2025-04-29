@@ -8,6 +8,15 @@ import { useMarkdownContent } from '@/utils/markdownLoader';
 
 const Hero = () => {
   const { content, isLoading } = useMarkdownContent('src/content/hero.md');
+  
+  // Get the base URL for assets
+  const getBaseUrl = () => {
+    const baseUrl = import.meta.env.BASE_URL || '/';
+    return baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+  };
+  
+  // Profile image URL with proper base path handling
+  const profileImageUrl = "https://compimag.org/wp-content/uploads/2020/03/matteo-288x300.png";
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center pt-16">
@@ -48,7 +57,7 @@ const Hero = () => {
           <div className="hidden md:block">
             <div className="relative rounded-2xl overflow-hidden shadow-xl animate-fade-in">
               <img 
-                src="https://compimag.org/wp-content/uploads/2020/03/matteo-288x300.png" 
+                src={profileImageUrl} 
                 alt="Matteo Maspero" 
                 className="w-full h-[500px] object-cover"
               />

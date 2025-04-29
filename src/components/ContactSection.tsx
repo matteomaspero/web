@@ -11,7 +11,7 @@ import { useMarkdownContent } from '@/utils/markdownLoader';
 
 const ContactSection = () => {
   const { toast } = useToast();
-  const { content, isLoading } = useMarkdownContent('/src/content/contact.md');
+  const { content, isLoading } = useMarkdownContent('src/content/contact.md');
   
   // Parse contact info from markdown
   const parseContactInfo = () => {

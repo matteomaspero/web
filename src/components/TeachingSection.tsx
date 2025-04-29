@@ -6,7 +6,7 @@ import remarkGfm from 'remark-gfm';
 import { useMarkdownContent } from '@/utils/markdownLoader';
 
 const TeachingSection = () => {
-  const { content, isLoading } = useMarkdownContent('/src/content/teaching.md');
+  const { content, isLoading } = useMarkdownContent('src/content/teaching.md');
 
   const courses = [
     {
@@ -30,21 +30,27 @@ const TeachingSection = () => {
   ];
 
   // Parse student information from markdown
-  const studentSection = content.split('## Student Supervision')[1] || '';
-  const studentEntries = studentSection.split('\n\n').filter(Boolean);
-  
-  const students = studentEntries.map(entry => {
-    const lines = entry.split('\n');
-    const name = lines[0]?.replace('### ', '') || '';
-    const details = lines[1]?.split(' - ') || [];
+  const parseStudentInfo = () => {
+    if (!content) return [];
     
-    return {
-      name,
-      degree: details[0] || '',
-      topic: details[1] || '',
-      year: details[2] || ''
-    };
-  });
+    const studentSection = content.split('## Student Supervision')[1] || '';
+    const studentEntries = studentSection.split('\n\n').filter(Boolean);
+    
+    return studentEntries.map(entry => {
+      const lines = entry.split('\n');
+      const name = lines[0]?.replace('### ', '') || '';
+      const details = lines[1]?.split(' - ') || [];
+      
+      return {
+        name,
+        degree: details[0] || '',
+        topic: details[1] || '',
+        year: details[2] || ''
+      };
+    });
+  };
+
+  const students = parseStudentInfo();
 
   return (
     <section id="teaching">

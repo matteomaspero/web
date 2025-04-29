@@ -15,7 +15,7 @@ interface Talk {
 }
 
 const TalksSection = () => {
-  const { content, isLoading } = useMarkdownContent('/src/content/talks.md');
+  const { content, isLoading } = useMarkdownContent('src/content/talks.md');
   
   // Parse talks from markdown content
   const parseTalks = (): Talk[] => {
@@ -23,11 +23,11 @@ const TalksSection = () => {
     
     const talkEntries = content.split(/###\s/).filter(Boolean);
     // Remove the header if it exists
-    const talks = talkEntries[0] === 'Selected Talks' ? talkEntries.slice(1) : talkEntries;
+    const talks = talkEntries[0]?.includes('Selected Talks') ? talkEntries.slice(1) : talkEntries;
     
     return talks.map(entry => {
       const lines = entry.split('\n').filter(Boolean);
-      const title = lines[0].trim();
+      const title = lines[0]?.trim() || '';
       
       const detailsLine = lines.length > 1 ? lines[1] : '';
       const details = detailsLine.split(' - ').filter(Boolean);
