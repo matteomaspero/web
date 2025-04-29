@@ -6,46 +6,46 @@ const TeachingSection = () => {
     {
       title: "Medical Image Analysis",
       level: "Graduate",
-      description: "Deep learning methods for medical image analysis in radiation oncology",
+      description: "Deep learning for medical imaging in radiotherapy",
       icon: <University className="h-6 w-6" />
     },
     {
       title: "Advanced MR Imaging",
-      level: "Graduate/Professional",
-      description: "MR physics and advanced protocols for clinical applications",
+      level: "Graduate",
+      description: "MR physics and clinical applications",
       icon: <School className="h-6 w-6" />
     },
     {
       title: "AI in Healthcare",
       level: "Medical Students",
-      description: "Introduction to AI/ML applications in clinical practice",
+      description: "AI/ML applications in clinical practice",
       icon: <GraduationCap className="h-6 w-6" />
     }
   ];
 
   const students = [
     {
-      name: "Emma De Jong",
+      name: "Linde Hesse",
       degree: "PhD",
       topic: "Deep learning for radiation therapy planning",
       year: "2022-Present"
     },
     {
-      name: "Thomas Verhoeven",
+      name: "Stefan Ivanovikj",
       degree: "MSc",
       topic: "MRI-based synthetic CT generation",
       year: "2023"
     },
     {
-      name: "Sophie van der Berg",
+      name: "Jessica van Nes",
       degree: "PhD",
       topic: "Auto-segmentation of organs at risk",
       year: "2021-Present"
     },
     {
-      name: "Lucas Bakker",
+      name: "Jan-Willem de Jong",
       degree: "MSc",
-      topic: "Deep learning for outcome prediction in head and neck cancer",
+      topic: "Deep learning for outcome prediction",
       year: "2022"
     }
   ];
@@ -95,40 +95,6 @@ const TeachingSection = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-
-        <div className="mt-8 bg-navy/5 rounded-lg p-6">
-          <h3 className="text-xl mb-4" style={{ color: "#0050B2" }}>Teaching Focus</h3>
-          <div className="flex flex-col md:flex-row gap-6">
-            <div className="md:w-1/2">
-              <div className="grid grid-cols-2 gap-3">
-                <div className="bg-white p-3 rounded-lg shadow-sm">
-                  <h4 className="font-bold text-sm mb-1" style={{ color: "#0050B2" }}>Student Mentorship</h4>
-                  <p className="text-xs">8+ PhD and MSc students supervised</p>
-                </div>
-                <div className="bg-white p-3 rounded-lg shadow-sm">
-                  <h4 className="font-bold text-sm mb-1" style={{ color: "#0050B2" }}>Curriculum Development</h4>
-                  <p className="text-xs">Created 2 courses on medical imaging AI</p>
-                </div>
-                <div className="bg-white p-3 rounded-lg shadow-sm">
-                  <h4 className="font-bold text-sm mb-1" style={{ color: "#0050B2" }}>Teaching Interests</h4>
-                  <p className="text-xs">Deep learning, image segmentation, MRI</p>
-                </div>
-                <div className="bg-white p-3 rounded-lg shadow-sm">
-                  <h4 className="font-bold text-sm mb-1" style={{ color: "#0050B2" }}>Workshops</h4>
-                  <p className="text-xs">10+ hands-on training sessions for clinicians</p>
-                </div>
-              </div>
-            </div>
-            <div className="md:w-1/2">
-              <p className="text-sm mb-3">
-                My teaching approach bridges AI/ML theory with clinical applications in radiation oncology and medical imaging. I focus on translating complex technical concepts to healthcare professionals.
-              </p>
-              <p className="text-xs text-muted-foreground">
-                Currently supervising PhD and MSc students at the Computational Imaging Group, UMC Utrecht, focusing on deep learning methods for medical image analysis and improved radiation treatment planning.
-              </p>
-            </div>
           </div>
         </div>
       </div>

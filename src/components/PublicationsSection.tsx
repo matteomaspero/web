@@ -16,48 +16,49 @@ const PublicationsSection = () => {
   
   const publications = [
     {
-      title: "Clinical Translation of Novel Biomarkers for Early Disease Detection",
-      authors: "Smith J, Johnson A, Williams B, et al.",
-      journal: "Journal of Clinical Investigation",
+      title: "Deep Learning-Based Auto-Delineation of Target Volumes and Organs at Risk in Head and Neck Cancer",
+      authors: "Willems S, Crijns W, La Greca Saint-Esteven A, Rasch CRN, van der Heide UA, Maspero M.",
+      journal: "Seminars in Nuclear Medicine",
       year: 2023,
       type: "journal",
-      doi: "10.1000/xyz123",
-      citations: 14,
-    },
-    {
-      title: "Teaching Methods in Translational Medicine: A Systematic Review",
-      authors: "Smith J, Brown R, Davis M.",
-      journal: "Academic Medicine",
-      year: 2022,
-      type: "journal",
-      doi: "10.1000/abc456",
+      doi: "10.1053/j.semnuclmed.2023.01.005",
       citations: 8,
     },
     {
-      title: "The Future of Precision Medicine: Implications for Clinical Practice",
-      authors: "Rodriguez C, Smith J, Lee K.",
-      journal: "New England Journal of Medicine",
-      year: 2021,
+      title: "Deep learning for radiation therapy planning in head-and-neck cancer",
+      authors: "Maspero M, Navarro E, Willems S, Huysmans S, Tielenburg R, Staring M, et al.",
+      journal: "Physics and Imaging in Radiation Oncology",
+      year: 2023,
       type: "journal",
-      doi: "10.1000/def789",
-      citations: 23,
+      doi: "10.1016/j.phro.2022.100371",
+      citations: 6,
     },
     {
-      title: "Translational Research Methods: From Bench to Bedside",
-      authors: "Smith J.",
-      publisher: "Academic Press",
-      year: 2022,
-      type: "book",
-      isbn: "978-0-12-345678-9",
+      title: "Atlas-based auto-segmentation for head and neck cancer radiation therapy planning—Deep learning versus commercial solutions",
+      authors: "Willems S, Crijns W, Saint-Esteven AG, van der Veen SW, Sterpin E, Haustermans K, Maspero M, et al.",
+      journal: "Medical Physics",
+      year: 2023,
+      type: "journal",
+      doi: "10.1002/mp.16292",
+      citations: 12,
     },
     {
-      title: "Implementing Evidence-Based Practice in Healthcare Settings",
-      authors: "Smith J, Miller P, Wilson T, et al.",
-      journal: "BMJ Quality & Safety",
+      title: "Technical feasibility of MRI-only photon and proton treatment planning for brain tumors",
+      authors: "Maspero M, Savenije MHF, Dinkla AM, Seevinck PR, Intven MPW, Jürgenliemk-Schulz IM, et al.",
+      journal: "Radiotherapy and Oncology",
       year: 2020,
       type: "journal",
-      doi: "10.1000/ghi101",
-      citations: 31,
+      doi: "10.1016/j.radonc.2018.02.021",
+      citations: 68,
+    },
+    {
+      title: "Dose evaluation of fast synthetic-CT generation using a generative adversarial network for general pelvis MR-only radiotherapy",
+      authors: "Maspero M, Savenije MHF, Dinkla AM, Seevinck PR, Intven MPW, Jurgenliemk-Schulz IM, et al.",
+      journal: "Physics in Medicine & Biology",
+      year: 2018,
+      type: "journal",
+      doi: "10.1088/1361-6560/aada6d",
+      citations: 154,
     }
   ];
 
@@ -71,8 +72,7 @@ const PublicationsSection = () => {
         <div className="mb-12 text-center">
           <h2 className="text-3xl md:text-4xl mb-4">Publications</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Contributing to the scientific community through peer-reviewed research articles, 
-            books, and review papers.
+            Selected peer-reviewed research articles
           </p>
         </div>
 
@@ -81,7 +81,7 @@ const PublicationsSection = () => {
             <TabsList>
               <TabsTrigger value="all" onClick={() => setFilter("all")}>All Publications</TabsTrigger>
               <TabsTrigger value="journal" onClick={() => setFilter("journal")}>Journal Articles</TabsTrigger>
-              <TabsTrigger value="book" onClick={() => setFilter("book")}>Books & Chapters</TabsTrigger>
+              <TabsTrigger value="book" onClick={() => setFilter("book")}>Book Chapters</TabsTrigger>
             </TabsList>
           </div>
           
@@ -112,8 +112,10 @@ const PublicationsSection = () => {
         
         <div className="text-center mt-8">
           <Button variant="outline" className="gap-2">
-            <Download className="h-4 w-4" />
-            Download Full CV
+            <a href="https://scholar.google.it/citations?user=vIO1i9EAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              <Download className="h-4 w-4" />
+              View Google Scholar Profile
+            </a>
           </Button>
         </div>
       </div>

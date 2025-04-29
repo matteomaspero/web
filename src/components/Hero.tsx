@@ -12,7 +12,7 @@ const Hero = () => {
               Matteo Maspero
             </h1>
             <p className="text-lg md:text-xl mb-6 text-muted-foreground">
-              Assistant Professor at UMC Utrecht, focusing on AI and deep learning methods for medical image analysis in radiation oncology.
+              Assistant Professor at UMC Utrecht, focusing on AI methods for medical image analysis in radiation oncology.
             </p>
             <div className="flex flex-wrap gap-3">
               <Button asChild style={{ backgroundColor: "#0050B2" }}>
@@ -26,8 +26,8 @@ const Hero = () => {
           <div className="hidden md:block">
             <div className="relative rounded-2xl overflow-hidden shadow-xl animate-fade-in">
               <img 
-                src="https://images.unsplash.com/photo-1576670159375-74bae1ff0610?q=80&w=2000&auto=format&fit=crop" 
-                alt="Medical imaging researcher" 
+                src="https://compimag.org/wp-content/uploads/2020/03/matteo-288x300.png" 
+                alt="Matteo Maspero" 
                 className="w-full h-[500px] object-cover"
               />
               <div className="absolute inset-0 bg-navy/20" />

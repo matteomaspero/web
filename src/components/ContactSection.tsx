@@ -10,12 +10,10 @@ const ContactSection = () => {
   
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // In a real application, you would send the form data to a server
     toast({
       title: "Message sent!",
       description: "Thank you for your message. I'll get back to you soon.",
     });
-    // Reset form
     e.currentTarget.reset();
   };
 
@@ -25,8 +23,7 @@ const ContactSection = () => {
         <div className="mb-12 text-center">
           <h2 className="text-3xl md:text-4xl mb-4">Get in Touch</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Interested in collaboration, speaking engagements, or have questions about my research?
-            Feel free to reach out.
+            Contact me about research collaborations or speaking engagements
           </p>
         </div>
 
@@ -79,8 +76,8 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="font-medium">Email</p>
-                    <a href="mailto:contact@example.com" className="text-teal hover:underline">
-                      john.smith@university.edu
+                    <a href="mailto:m.maspero@umcutrecht.nl" className="text-teal hover:underline">
+                      m.maspero@umcutrecht.nl
                     </a>
                   </div>
                 </div>
@@ -90,7 +87,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="font-medium">Phone</p>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                    <p className="text-muted-foreground">+31 (0)88 75 69400</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -100,32 +97,15 @@ const ContactSection = () => {
                   <div>
                     <p className="font-medium">Address</p>
                     <p className="text-muted-foreground">
-                      Department of Clinical Research<br />
-                      University Medical Center<br />
-                      123 Academic Way<br />
-                      Boston, MA 02115
+                      Imaging Division<br />
+                      UMC Utrecht<br />
+                      Heidelberglaan 100<br />
+                      3584 CX Utrecht<br />
+                      The Netherlands
                     </p>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div className="mt-8">
-              <h3 className="text-xl font-bold mb-4">Office Hours</h3>
-              <ul className="space-y-2">
-                <li className="flex justify-between">
-                  <span>Monday - Thursday</span>
-                  <span className="text-muted-foreground">9:00 AM - 4:00 PM</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Friday</span>
-                  <span className="text-muted-foreground">9:00 AM - 1:00 PM</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Saturday - Sunday</span>
-                  <span className="text-muted-foreground">Closed</span>
-                </li>
-              </ul>
             </div>
           </div>
         </div>

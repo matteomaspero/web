@@ -6,17 +6,17 @@ const ResearchSection = () => {
   const researchAreas = [
     {
       title: "AI in Medical Imaging",
-      description: "Developing deep learning methods for medical image analysis in radiation oncology.",
+      description: "Deep learning methods for medical image segmentation in radiation therapy.",
       icon: <FileText className="h-10 w-10" style={{ color: "#0050B2" }} />
     },
     {
       title: "MR-guided Radiotherapy",
-      description: "MR-only workflows for radiation therapy planning and treatment.",
+      description: "MR-only workflows for treatment planning.",
       icon: <Book className="h-10 w-10" style={{ color: "#0050B2" }} />
     },
     {
       title: "Image Synthesis",
-      description: "Synthetic CT generation from MRI for radiation treatment planning.",
+      description: "Synthetic CT generation from MRI for radiotherapy.",
       icon: <BookOpen className="h-10 w-10" style={{ color: "#0050B2" }} />
     }
   ];
@@ -51,19 +51,19 @@ const ResearchSection = () => {
           <h3 className="text-2xl mb-4" style={{ color: "#0050B2" }}>Current Projects</h3>
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h4 className="text-xl mb-2" style={{ color: "#0050B2" }}>Deep Learning for Automated Planning</h4>
+              <h4 className="text-xl mb-2" style={{ color: "#0050B2" }}>AI for Radiotherapy Planning</h4>
               <p className="text-muted-foreground mb-4">
-                Developing AI methods to automate radiation therapy planning for head and neck cancer patients.
+                Developing AI methods to improve radiation therapy planning for head and neck cancer patients.
               </p>
               <ul className="list-disc list-inside space-y-1 text-foreground/80 text-sm">
                 <li>Auto-segmentation of organs at risk</li>
-                <li>Synthetic CT generation from MRI</li>
-                <li>Dose prediction models for treatment optimization</li>
+                <li>MR-based treatment planning</li>
+                <li>Dose prediction models</li>
               </ul>
             </div>
             <div className="rounded-lg overflow-hidden shadow-md">
               <img 
-                src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?q=80&w=2000&auto=format&fit=crop" 
+                src="https://compimag.org/wp-content/uploads/2023/09/Picture1-720x380.png" 
                 alt="Medical imaging AI research" 
                 className="w-full h-64 object-cover"
               />
