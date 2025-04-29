@@ -1,0 +1,71 @@
+
+/* Global styles */
+.section-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+section {
+  padding: 2rem 0;
+  scroll-margin-top: 4rem;
+}
+
+.bg-lightGray {
+  background-color: #f9fafb;
+}
+
+.text-navy {
+  color: #0050B2;
+}
+
+.text-teal {
+  color: #0caa9e;
+}
+
+.bg-navy {
+  background-color: #0050B2;
+}
+
+.bg-teal {
+  background-color: #0caa9e;
+}
+
+.border-teal {
+  border-color: #0caa9e;
+}
+
+/* Fix for React Markdown rendering */
+.markdown-content p {
+  margin-bottom: 1rem;
+}
+
+.markdown-content h1, 
+.markdown-content h2, 
+.markdown-content h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-content ul, 
+.markdown-content ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
