@@ -1,7 +1,12 @@
 
 import { GraduationCap, School, University, Users } from "lucide-react";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { useMarkdownContent } from '@/utils/markdownLoader';
 
 const TeachingSection = () => {
+  const { content, isLoading } = useMarkdownContent('/src/content/teaching.md');
+
   const courses = [
     {
       title: "Medical Image Analysis",
@@ -23,32 +28,22 @@ const TeachingSection = () => {
     }
   ];
 
-  const students = [
-    {
-      name: "Linde Hesse",
-      degree: "PhD",
-      topic: "Deep learning for radiation therapy planning",
-      year: "2022-Present"
-    },
-    {
-      name: "Stefan Ivanovikj",
-      degree: "MSc",
-      topic: "MRI-based synthetic CT generation",
-      year: "2023"
-    },
-    {
-      name: "Jessica van Nes",
-      degree: "PhD",
-      topic: "Auto-segmentation of organs at risk",
-      year: "2021-Present"
-    },
-    {
-      name: "Jan-Willem de Jong",
-      degree: "MSc",
-      topic: "Deep learning for outcome prediction",
-      year: "2022"
-    }
-  ];
+  // Parse student information from markdown
+  const studentSection = content.split('## Student Supervision')[1] || '';
+  const studentEntries = studentSection.split('\n\n').filter(Boolean);
+  
+  const students = studentEntries.map(entry => {
+    const lines = entry.split('\n');
+    const name = lines[0]?.replace('### ', '') || '';
+    const details = lines[1]?.split(' - ') || [];
+    
+    return {
+      name,
+      degree: details[0] || '',
+      topic: details[1] || '',
+      year: details[2] || ''
+    };
+  });
 
   return (
     <section id="teaching">
@@ -80,22 +75,33 @@ const TeachingSection = () => {
             Student Supervision
           </h3>
           
-          <div className="grid md:grid-cols-2 gap-4">
-            {students.map((student, index) => (
-              <div key={index} className="bg-white p-4 rounded-lg shadow-sm">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h4 className="font-bold mb-1" style={{ color: "#0050B2" }}>{student.name}</h4>
-                    <p className="text-sm text-muted-foreground">{student.topic}</p>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-xs bg-navy/10 px-2 py-1 rounded-full">{student.degree}</span>
-                    <p className="text-xs text-muted-foreground mt-1">{student.year}</p>
+          {isLoading ? (
+            <div className="grid md:grid-cols-2 gap-4">
+              {[1, 2, 3, 4].map(i => (
+                <div key={i} className="animate-pulse bg-white p-4 rounded-lg shadow-sm">
+                  <div className="h-5 bg-slate-200 rounded w-1/2 mb-2"></div>
+                  <div className="h-4 bg-slate-200 rounded w-3/4"></div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 gap-4">
+              {students.map((student, index) => (
+                <div key={index} className="bg-white p-4 rounded-lg shadow-sm">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h4 className="font-bold mb-1" style={{ color: "#0050B2" }}>{student.name}</h4>
+                      <p className="text-sm text-muted-foreground">{student.topic}</p>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-xs bg-navy/10 px-2 py-1 rounded-full">{student.degree}</span>
+                      <p className="text-xs text-muted-foreground mt-1">{student.year}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

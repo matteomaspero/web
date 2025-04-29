@@ -1,19 +1,40 @@
 
 import { ArrowDownIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { useMarkdownContent } from '@/utils/markdownLoader';
 
 const Hero = () => {
+  const { content, isLoading } = useMarkdownContent('/src/content/hero.md');
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center pt-16">
       <div className="section-container">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="animate-fade-in">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl mb-4" style={{ color: "#0050B2" }}>
-              Matteo Maspero
-            </h1>
-            <p className="text-lg md:text-xl mb-6 text-muted-foreground">
-              Assistant Professor at UMC Utrecht, focusing on AI methods for medical image analysis in radiation oncology.
-            </p>
+            {isLoading ? (
+              <div className="animate-pulse">
+                <div className="h-12 bg-slate-200 rounded w-3/4 mb-4"></div>
+                <div className="h-20 bg-slate-200 rounded w-full"></div>
+              </div>
+            ) : (
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  h1: ({ children }) => (
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl mb-4" style={{ color: "#0050B2" }}>
+                      {children}
+                    </h1>
+                  ),
+                  p: ({ children }) => (
+                    <p className="text-lg md:text-xl mb-6 text-muted-foreground">{children}</p>
+                  )
+                }}
+              >
+                {content}
+              </ReactMarkdown>
+            )}
             <div className="flex flex-wrap gap-3">
               <Button asChild style={{ backgroundColor: "#0050B2" }}>
                 <a href="#research">Research</a>

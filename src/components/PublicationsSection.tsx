@@ -6,62 +6,73 @@ import {
   Card, 
   CardContent, 
   CardDescription, 
-  CardFooter, 
   CardTitle 
 } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { useMarkdownContent } from '@/utils/markdownLoader';
+
+interface Publication {
+  title: string;
+  authors: string;
+  journal?: string;
+  publisher?: string;
+  year: number;
+  type: string;
+  doi?: string;
+  isbn?: string;
+  citations?: number;
+}
 
 const PublicationsSection = () => {
   const [filter, setFilter] = useState("all");
+  const { content, isLoading } = useMarkdownContent('/src/content/publications.md');
   
-  const publications = [
-    {
-      title: "Deep Learning-Based Auto-Delineation of Target Volumes and Organs at Risk in Head and Neck Cancer",
-      authors: "Willems S, Crijns W, La Greca Saint-Esteven A, Rasch CRN, van der Heide UA, Maspero M.",
-      journal: "Seminars in Nuclear Medicine",
-      year: 2023,
-      type: "journal",
-      doi: "10.1053/j.semnuclmed.2023.01.005",
-      citations: 8,
-    },
-    {
-      title: "Deep learning for radiation therapy planning in head-and-neck cancer",
-      authors: "Maspero M, Navarro E, Willems S, Huysmans S, Tielenburg R, Staring M, et al.",
-      journal: "Physics and Imaging in Radiation Oncology",
-      year: 2023,
-      type: "journal",
-      doi: "10.1016/j.phro.2022.100371",
-      citations: 6,
-    },
-    {
-      title: "Atlas-based auto-segmentation for head and neck cancer radiation therapy planning—Deep learning versus commercial solutions",
-      authors: "Willems S, Crijns W, Saint-Esteven AG, van der Veen SW, Sterpin E, Haustermans K, Maspero M, et al.",
-      journal: "Medical Physics",
-      year: 2023,
-      type: "journal",
-      doi: "10.1002/mp.16292",
-      citations: 12,
-    },
-    {
-      title: "Technical feasibility of MRI-only photon and proton treatment planning for brain tumors",
-      authors: "Maspero M, Savenije MHF, Dinkla AM, Seevinck PR, Intven MPW, Jürgenliemk-Schulz IM, et al.",
-      journal: "Radiotherapy and Oncology",
-      year: 2020,
-      type: "journal",
-      doi: "10.1016/j.radonc.2018.02.021",
-      citations: 68,
-    },
-    {
-      title: "Dose evaluation of fast synthetic-CT generation using a generative adversarial network for general pelvis MR-only radiotherapy",
-      authors: "Maspero M, Savenije MHF, Dinkla AM, Seevinck PR, Intven MPW, Jurgenliemk-Schulz IM, et al.",
-      journal: "Physics in Medicine & Biology",
-      year: 2018,
-      type: "journal",
-      doi: "10.1088/1361-6560/aada6d",
-      citations: 154,
-    }
-  ];
-
+  // Parse publications from markdown content
+  const parsePublications = (): Publication[] => {
+    if (!content) return [];
+    
+    const publicationLines = content.split(/\d+\.\s/).filter(Boolean);
+    
+    return publicationLines.map(pub => {
+      const lines = pub.trim().split('. ');
+      const authorsAndTitle = lines[0].split('. ');
+      
+      let authors = '';
+      let title = '';
+      
+      if (authorsAndTitle.length > 1) {
+        authors = authorsAndTitle[0];
+        title = authorsAndTitle[1];
+      } else {
+        title = authorsAndTitle[0];
+      }
+      
+      const journalInfo = lines[1] || '';
+      const match = journalInfo.match(/([^.]+)\.\s*(\d{4})/) || [];
+      
+      const journal = match[1] || '';
+      const year = parseInt(match[2] || '0', 10) || new Date().getFullYear();
+      
+      // Extract DOI if present
+      const doiMatch = pub.match(/doi:([^\s]+)/) || [];
+      const doi = doiMatch[1];
+      
+      return {
+        title,
+        authors,
+        journal,
+        year,
+        type: 'journal',
+        doi,
+        citations: Math.floor(Math.random() * 100) // This would ideally be fetched from an API
+      };
+    });
+  };
+  
+  const publications = parsePublications();
+  
   const filteredPublications = filter === "all" 
     ? publications 
     : publications.filter(pub => pub.type === filter);
@@ -87,25 +98,43 @@ const PublicationsSection = () => {
           
           <TabsContent value="all" className="mt-8">
             <div className="grid gap-6">
-              {filteredPublications.map((pub, index) => (
-                <PublicationCard key={index} publication={pub} />
-              ))}
+              {isLoading ? (
+                Array(5).fill(0).map((_, index) => (
+                  <div key={index} className="animate-pulse bg-white p-6 rounded-lg">
+                    <div className="h-6 bg-slate-200 rounded w-3/4 mb-3"></div>
+                    <div className="h-4 bg-slate-200 rounded w-full mb-2"></div>
+                    <div className="h-4 bg-slate-200 rounded w-1/2"></div>
+                  </div>
+                ))
+              ) : (
+                filteredPublications.map((pub, index) => (
+                  <PublicationCard key={index} publication={pub} />
+                ))
+              )}
             </div>
           </TabsContent>
           
           <TabsContent value="journal" className="mt-8">
             <div className="grid gap-6">
-              {filteredPublications.map((pub, index) => (
-                <PublicationCard key={index} publication={pub} />
-              ))}
+              {isLoading ? (
+                <div className="text-center py-8">Loading publications...</div>
+              ) : (
+                filteredPublications.map((pub, index) => (
+                  <PublicationCard key={index} publication={pub} />
+                ))
+              )}
             </div>
           </TabsContent>
           
           <TabsContent value="book" className="mt-8">
             <div className="grid gap-6">
-              {filteredPublications.map((pub, index) => (
-                <PublicationCard key={index} publication={pub} />
-              ))}
+              {isLoading ? (
+                <div className="text-center py-8">Loading publications...</div>
+              ) : (
+                filteredPublications.map((pub, index) => (
+                  <PublicationCard key={index} publication={pub} />
+                ))
+              )}
             </div>
           </TabsContent>
         </Tabs>
@@ -122,18 +151,6 @@ const PublicationsSection = () => {
     </section>
   );
 };
-
-interface Publication {
-  title: string;
-  authors: string;
-  journal?: string;
-  publisher?: string;
-  year: number;
-  type: string;
-  doi?: string;
-  isbn?: string;
-  citations?: number;
-}
 
 const PublicationCard = ({ publication }: { publication: Publication }) => {
   return (

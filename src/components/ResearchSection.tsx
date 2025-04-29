@@ -1,8 +1,13 @@
 
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { Book, FileText, BookOpen } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useMarkdownContent } from '@/utils/markdownLoader';
 
 const ResearchSection = () => {
+  const { content, isLoading } = useMarkdownContent('/src/content/research.md');
+  
   const researchAreas = [
     {
       title: "AI in Medical Imaging",
@@ -21,14 +26,47 @@ const ResearchSection = () => {
     }
   ];
 
+  const renderMarkdown = (text: string) => {
+    return (
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        components={{
+          h2: ({ children }) => (
+            <h2 className="text-3xl md:text-4xl mb-2" style={{ color: "#0050B2" }}>{children}</h2>
+          ),
+          h3: ({ children }) => (
+            <h3 className="text-xl mb-2" style={{ color: "#0050B2" }}>{children}</h3>
+          ),
+          p: ({ children }) => (
+            <p className="text-muted-foreground mb-4">{children}</p>
+          ),
+          ul: ({ children }) => (
+            <ul className="list-disc list-inside space-y-1 text-foreground/80 text-sm">{children}</ul>
+          ),
+        }}
+      >
+        {text}
+      </ReactMarkdown>
+    );
+  };
+
   return (
     <section id="research" className="bg-lightGray">
       <div className="section-container">
         <div className="mb-8 text-center">
-          <h2 className="text-3xl md:text-4xl mb-2" style={{ color: "#0050B2" }}>Research Focus</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Computational Imaging Group, UMC Utrecht
-          </p>
+          {isLoading ? (
+            <div className="animate-pulse">
+              <div className="h-10 bg-slate-200 rounded w-1/4 mx-auto mb-2"></div>
+              <div className="h-5 bg-slate-200 rounded w-1/2 mx-auto"></div>
+            </div>
+          ) : (
+            <>
+              <h2 className="text-3xl md:text-4xl mb-2" style={{ color: "#0050B2" }}>Research Focus</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Computational Imaging Group, UMC Utrecht
+              </p>
+            </>
+          )}
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
@@ -48,27 +86,25 @@ const ResearchSection = () => {
         </div>
 
         <div className="mt-12 bg-white p-6 md:p-8 rounded-lg shadow-md">
-          <h3 className="text-2xl mb-4" style={{ color: "#0050B2" }}>Current Projects</h3>
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h4 className="text-xl mb-2" style={{ color: "#0050B2" }}>AI for Radiotherapy Planning</h4>
-              <p className="text-muted-foreground mb-4">
-                Developing AI methods to improve radiation therapy planning for head and neck cancer patients.
-              </p>
-              <ul className="list-disc list-inside space-y-1 text-foreground/80 text-sm">
-                <li>Auto-segmentation of organs at risk</li>
-                <li>MR-based treatment planning</li>
-                <li>Dose prediction models</li>
-              </ul>
+          {isLoading ? (
+            <div className="animate-pulse space-y-4">
+              <div className="h-7 bg-slate-200 rounded w-1/4"></div>
+              <div className="h-20 bg-slate-200 rounded w-full"></div>
             </div>
-            <div className="rounded-lg overflow-hidden shadow-md">
-              <img 
-                src="https://compimag.org/wp-content/uploads/2023/09/Picture1-720x380.png" 
-                alt="Medical imaging AI research" 
-                className="w-full h-64 object-cover"
-              />
+          ) : (
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                {renderMarkdown(content.split('## Current Projects')[1] || '')}
+              </div>
+              <div className="rounded-lg overflow-hidden shadow-md">
+                <img 
+                  src="https://compimag.org/wp-content/uploads/2023/09/Picture1-720x380.png" 
+                  alt="Medical imaging AI research" 
+                  className="w-full h-64 object-cover"
+                />
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>
