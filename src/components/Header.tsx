@@ -27,8 +27,8 @@ const Header = () => {
       }`}
     >
       <div className="section-container flex justify-between items-center">
-        <a href="#hero" className="text-navy font-serif text-xl md:text-2xl font-bold">
-          Dr. John Smith
+        <a href="#hero" style={{ color: "#0050B2" }} className="font-serif text-xl md:text-2xl font-bold">
+          Matteo Maspero
         </a>
         
         <div className="md:hidden">
@@ -50,7 +50,8 @@ const Header = () => {
               <li key={item}>
                 <a 
                   href={`#${item.toLowerCase()}`}
-                  className="block px-4 py-2 text-navy hover:text-teal transition-colors"
+                  style={{ color: "#0050B2" }}
+                  className="block px-4 py-2 hover:text-teal transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item}
