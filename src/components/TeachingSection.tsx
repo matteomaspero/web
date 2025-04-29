@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { GraduationCap, School, University, Users } from "lucide-react";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';

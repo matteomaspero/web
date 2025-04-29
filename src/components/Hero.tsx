@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { ArrowDownIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ReactMarkdown from 'react-markdown';

@@ -1,4 +1,5 @@
 
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Book, FileText, BookOpen } from "lucide-react";
