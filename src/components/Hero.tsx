@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { ArrowDownIcon } from 'lucide-react';
+import { ArrowDownIcon, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -9,13 +8,6 @@ import { useMarkdownContent } from '@/utils/markdownLoader';
 const Hero = () => {
   const { content, isLoading } = useMarkdownContent('src/content/hero.md');
   
-  // Get the base URL for assets
-  const getBaseUrl = () => {
-    const baseUrl = import.meta.env.BASE_URL || '/';
-    return baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
-  };
-  
-  // Profile image URL with proper base path handling
   const profileImageUrl = "https://compimag.org/wp-content/uploads/2020/03/matteo-288x300.png";
 
   return (
@@ -45,6 +37,54 @@ const Hero = () => {
                 {content}
               </ReactMarkdown>
             )}
+            
+            {/* Affiliations */}
+            <div className="mb-6 space-y-1 text-sm text-muted-foreground">
+              <p className="flex items-center gap-2">
+                <span className="font-medium text-foreground">Primary:</span>
+                <a href="https://research.umcutrecht.nl/researchers/maspero/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  Department of Radiotherapy, UMC Utrecht
+                </a>
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="font-medium text-foreground">Secondary:</span>
+                <a href="https://cig-utrecht.org/members/matteo-maspero" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  Computational Imaging Group
+                </a>
+              </p>
+            </div>
+            
+            {/* Academic Profile Links */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              <a 
+                href="https://orcid.org/0000-0003-0347-3375" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm bg-muted rounded-full hover:bg-muted/80 transition-colors"
+              >
+                <img src="https://orcid.org/assets/vectors/orcid.logo.icon.svg" alt="ORCID" className="h-4 w-4" />
+                ORCID
+              </a>
+              <a 
+                href="https://scholar.google.it/citations?user=vIO1i9EAAAAJ&hl=en" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm bg-muted rounded-full hover:bg-muted/80 transition-colors"
+              >
+                <ExternalLink className="h-3.5 w-3.5" />
+                Google Scholar
+              </a>
+              <a 
+                href="https://www.researchgate.net/profile/Matteo_Maspero" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm bg-muted rounded-full hover:bg-muted/80 transition-colors"
+              >
+                <ExternalLink className="h-3.5 w-3.5" />
+                ResearchGate
+              </a>
+            </div>
+            
             <div className="flex flex-wrap gap-3">
               <Button asChild style={{ backgroundColor: "#0050B2" }}>
                 <a href="#research">Research</a>
