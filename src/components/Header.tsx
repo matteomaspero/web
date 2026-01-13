@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Menu } from 'lucide-react';
 
@@ -46,7 +47,7 @@ const Header = () => {
           md:flex md:items-center md:static md:bg-transparent md:shadow-none md:p-0
         `}>
           <ul className="flex flex-col md:flex-row md:items-center gap-1 md:gap-1">
-            {['Research', 'Teaching', 'Publications', 'Talks', 'Contact'].map((item) => (
+            {['Research', 'Team', 'Teaching', 'Publications', 'Talks', 'Contact'].map((item) => (
               <li key={item}>
                 <a 
                   href={`#${item.toLowerCase()}`}
@@ -58,6 +59,16 @@ const Header = () => {
                 </a>
               </li>
             ))}
+            <li>
+              <Link 
+                to="/projects"
+                style={{ color: "#0050B2" }}
+                className="block px-4 py-2 hover:text-teal transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Projects
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
