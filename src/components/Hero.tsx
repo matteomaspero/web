@@ -8,7 +8,7 @@ import { useMarkdownContent } from '@/utils/markdownLoader';
 const Hero = () => {
   const { content, isLoading } = useMarkdownContent('src/content/hero.md');
   
-  const profileImageUrl = "https://compimag.org/wp-content/uploads/2020/03/matteo-288x300.png";
+  const profileImageUrl = "https://cig-utrecht.org/img/people/mmasp.jpg";
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center pt-16">

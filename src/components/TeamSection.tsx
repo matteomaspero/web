@@ -19,6 +19,7 @@ const students: Student[] = [
     role: "phd",
     period: "2024-2028",
     status: "current",
+    topic: "[Research topic to be added]",
   },
   // Current MSc
   {
@@ -26,13 +27,14 @@ const students: Student[] = [
     role: "msc",
     period: "2025-2026",
     status: "current",
-    topic: "Finishing soon",
+    topic: "[Research topic to be added]",
   },
   {
     name: "Bar Melinarskiy",
     role: "msc",
     period: "2025-2026",
     status: "current",
+    topic: "[Research topic to be added]",
   },
   // PhD Alumni
   {
@@ -60,60 +62,70 @@ const students: Student[] = [
     role: "msc",
     period: "2023",
     status: "alumni",
+    links: [{ label: "Thesis", url: "/theses/2023-van-wier-adine.pdf" }],
   },
   {
     name: "Xabier Arregui Garcia",
     role: "msc",
     period: "2023",
     status: "alumni",
+    links: [{ label: "Thesis", url: "/theses/2023-arregui-garcia-xabier.pdf" }],
   },
   {
     name: "Konstantinos Drymas Vrakidis",
     role: "msc",
     period: "2022",
     status: "alumni",
+    links: [{ label: "Thesis", url: "/theses/2022-drymas-vrakidis-konstantinos.pdf" }],
   },
   {
     name: "Vish Sundar",
     role: "msc",
     period: "2022",
     status: "alumni",
+    links: [{ label: "Thesis", url: "/theses/2022-sundar-vish.pdf" }],
   },
   {
     name: "Lotte Nijskens",
     role: "msc",
     period: "2022",
     status: "alumni",
+    links: [{ label: "Thesis", url: "/theses/2022-nijskens-lotte.pdf" }],
   },
   {
     name: "Luuk Jacobs",
     role: "msc",
     period: "2022",
     status: "alumni",
+    links: [{ label: "Thesis", url: "/theses/2022-jacobs-luuk.pdf" }],
   },
   {
     name: "Aishwarya M Gurusamy Muthuvelrabindran",
     role: "msc",
     period: "2021",
     status: "alumni",
+    links: [{ label: "Thesis", url: "/theses/2021-gurusamy-aishwarya.pdf" }],
   },
   {
     name: "Alexandru Moraru",
     role: "msc",
     period: "2021",
     status: "alumni",
+    links: [{ label: "Thesis", url: "/theses/2021-moraru-alexandru.pdf" }],
   },
   {
     name: "Maria Leousi",
     role: "msc",
     period: "2021",
     status: "alumni",
+    links: [{ label: "Thesis", url: "/theses/2021-leousi-maria.pdf" }],
   },
   {
     name: "Laura G Bentvelzen",
     role: "msc",
     period: "2019-2020",
     status: "alumni",
+    links: [{ label: "Thesis", url: "/theses/2020-bentvelzen-laura.pdf" }],
   },
 ];
 
@@ -217,11 +229,25 @@ const TeamSection = () => {
             {mscAlumni.map((student, index) => (
               <Card key={index} className="bg-white">
                 <CardContent className="py-3 px-4">
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <h4 className="font-medium text-sm" style={{ color: "#0050B2" }}>{student.name}</h4>
-                      <p className="text-xs text-muted-foreground">{student.period}</p>
-                    </div>
+                  <div className="flex flex-col gap-1">
+                    <h4 className="font-medium text-sm" style={{ color: "#0050B2" }}>{student.name}</h4>
+                    <p className="text-xs text-muted-foreground">{student.period}</p>
+                    {student.links && student.links.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mt-1">
+                        {student.links.map((link, linkIndex) => (
+                          <a
+                            key={linkIndex}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-xs text-teal hover:underline"
+                          >
+                            <FileText className="h-3 w-3" />
+                            {link.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </CardContent>
               </Card>
