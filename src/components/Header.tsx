@@ -47,7 +47,7 @@ const Header = () => {
           md:flex md:items-center md:static md:bg-transparent md:shadow-none md:p-0
         `}>
           <ul className="flex flex-col md:flex-row md:items-center gap-1 md:gap-1">
-            {['Research', 'Team', 'Teaching', 'Publications', 'Talks', 'Contact'].map((item) => (
+            {['Research', 'Team', 'Teaching', 'Publications', 'Awards', 'Editorial', 'Talks', 'Contact'].map((item) => (
               <li key={item}>
                 <a 
                   href={`#${item.toLowerCase()}`}
