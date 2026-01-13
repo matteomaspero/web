@@ -1,164 +1,233 @@
-import { GraduationCap, User, Calendar, ExternalLink } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import React from 'react';
+import { GraduationCap, ExternalLink, FileText } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-interface TeamMember {
+interface Student {
   name: string;
-  role: "phd" | "postdoc" | "msc";
-  topic: string;
+  role: 'phd' | 'msc';
   period: string;
-  status: "current" | "alumni";
+  status: 'current' | 'alumni';
+  topic?: string;
   links?: { label: string; url: string }[];
 }
 
-const teamMembers: TeamMember[] = [
-  // Current PhD Students
+const students: Student[] = [
+  // Current PhD
   {
-    name: "Linde Hesse",
+    name: "Mianyong Ding",
     role: "phd",
-    topic: "Deep learning for radiation therapy planning",
-    period: "2022-Present",
-    status: "current"
+    period: "2024-2028",
+    status: "current",
   },
+  // Current MSc
   {
-    name: "Jessica van Nes",
-    role: "phd",
-    topic: "Auto-segmentation of organs at risk",
-    period: "2021-Present",
-    status: "current"
-  },
-  // Alumni
-  {
-    name: "Stefan Ivanovikj",
+    name: "Yiwen Chen",
     role: "msc",
-    topic: "MRI-based synthetic CT generation",
+    period: "2025-2026",
+    status: "current",
+    topic: "Finishing soon",
+  },
+  {
+    name: "Bar Melinarskiy",
+    role: "msc",
+    period: "2025-2026",
+    status: "current",
+  },
+  // PhD Alumni
+  {
+    name: "Iris Kolenbrander",
+    role: "phd",
+    period: "2021-2025",
+    status: "alumni",
+    links: [
+      { label: "PhD Thesis", url: "https://pure.tue.nl/ws/files/369929297/20251202_Kolenbrander_hf.pdf" },
+      { label: "Publications", url: "https://research.tue.nl/nl/persons/iris-d-kolenbrander/publications/" },
+    ],
+  },
+  {
+    name: "Maarten Terpstra",
+    role: "phd",
+    period: "2019-2023",
+    status: "alumni",
+    links: [
+      { label: "Profile", url: "https://research.umcutrecht.nl/researchers/maarten-terpstra/" },
+    ],
+  },
+  // MSc Alumni
+  {
+    name: "Adine van Wier",
+    role: "msc",
     period: "2023",
-    status: "alumni"
+    status: "alumni",
   },
   {
-    name: "Jan-Willem de Jong",
+    name: "Xabier Arregui Garcia",
     role: "msc",
-    topic: "Deep learning for outcome prediction",
+    period: "2023",
+    status: "alumni",
+  },
+  {
+    name: "Konstantinos Drymas Vrakidis",
+    role: "msc",
     period: "2022",
-    status: "alumni"
-  }
+    status: "alumni",
+  },
+  {
+    name: "Vish Sundar",
+    role: "msc",
+    period: "2022",
+    status: "alumni",
+  },
+  {
+    name: "Lotte Nijskens",
+    role: "msc",
+    period: "2022",
+    status: "alumni",
+  },
+  {
+    name: "Luuk Jacobs",
+    role: "msc",
+    period: "2022",
+    status: "alumni",
+  },
+  {
+    name: "Aishwarya M Gurusamy Muthuvelrabindran",
+    role: "msc",
+    period: "2021",
+    status: "alumni",
+  },
+  {
+    name: "Alexandru Moraru",
+    role: "msc",
+    period: "2021",
+    status: "alumni",
+  },
+  {
+    name: "Maria Leousi",
+    role: "msc",
+    period: "2021",
+    status: "alumni",
+  },
+  {
+    name: "Laura G Bentvelzen",
+    role: "msc",
+    period: "2019-2020",
+    status: "alumni",
+  },
 ];
 
-const roleLabels = {
-  phd: "PhD Student",
-  postdoc: "Postdoc",
-  msc: "MSc Student"
+const roleLabels: Record<string, string> = {
+  phd: "PhD",
+  msc: "MSc",
 };
 
-const roleColors = {
-  phd: "bg-primary/10 text-primary",
-  postdoc: "bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-200",
-  msc: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200"
+const roleColors: Record<string, string> = {
+  phd: "bg-teal text-white",
+  msc: "bg-navy/80 text-white",
 };
 
 const TeamSection = () => {
-  const currentMembers = teamMembers.filter(m => m.status === "current");
-  const alumni = teamMembers.filter(m => m.status === "alumni");
+  const currentStudents = students.filter((s) => s.status === "current");
+  const phdAlumni = students.filter((s) => s.status === "alumni" && s.role === "phd");
+  const mscAlumni = students.filter((s) => s.status === "alumni" && s.role === "msc");
 
   return (
-    <section id="team" className="py-16 md:py-24 bg-muted/30">
+    <section id="team" className="py-16 bg-slate-50">
       <div className="section-container">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
-            Team & Supervision
+        <div className="mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl mb-2" style={{ color: "#0050B2" }}>
+            <GraduationCap className="inline-block mr-2 h-8 w-8" />
+            Student Supervision
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Current and former PhD students, postdocs, and master students
+            Current and past PhD and MSc students
           </p>
         </div>
 
-        {/* Current Team */}
-        {currentMembers.length > 0 && (
-          <div className="mb-12">
-            <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
-              <GraduationCap className="h-5 w-5 text-primary" />
-              Current Team
-            </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {currentMembers.map((member, index) => (
-                <Card key={index} className="hover:shadow-md transition-shadow">
-                  <CardHeader className="pb-3">
-                    <div className="flex items-start justify-between gap-2">
-                      <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center">
-                          <User className="h-6 w-6 text-muted-foreground" />
-                        </div>
-                        <div>
-                          <CardTitle className="text-lg">{member.name}</CardTitle>
-                          <Badge className={`${roleColors[member.role]} text-xs mt-1`}>
-                            {roleLabels[member.role]}
-                          </Badge>
-                        </div>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-sm mb-2">
-                      {member.topic}
-                    </CardDescription>
-                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                      <Calendar className="h-3 w-3" />
-                      {member.period}
-                    </div>
-                    {member.links && member.links.length > 0 && (
-                      <div className="flex gap-2 mt-3">
-                        {member.links.map((link, linkIndex) => (
-                          <a
-                            key={linkIndex}
-                            href={link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-xs text-primary hover:underline flex items-center gap-1"
-                          >
-                            <ExternalLink className="h-3 w-3" />
-                            {link.label}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+        {/* Current Students */}
+        <div className="mb-10">
+          <h3 className="text-xl font-semibold mb-4" style={{ color: "#0050B2" }}>
+            Current Students
+          </h3>
+          <div className="grid md:grid-cols-3 gap-4">
+            {currentStudents.map((student, index) => (
+              <Card key={index} className="border-t-4 border-teal">
+                <CardContent className="pt-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <h4 className="font-bold" style={{ color: "#0050B2" }}>{student.name}</h4>
+                    <Badge className={roleColors[student.role]}>{roleLabels[student.role]}</Badge>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{student.period}</p>
+                  {student.topic && (
+                    <p className="text-xs text-teal mt-1">{student.topic}</p>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
           </div>
-        )}
+        </div>
 
-        {/* Alumni */}
-        {alumni.length > 0 && (
-          <div>
-            <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
-              <User className="h-5 w-5 text-muted-foreground" />
-              Alumni
-            </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {alumni.map((member, index) => (
-                <Card key={index} className="hover:shadow-md transition-shadow">
-                  <CardContent className="pt-4">
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
-                        <User className="h-5 w-5 text-muted-foreground" />
-                      </div>
-                      <div>
-                        <h4 className="font-medium text-foreground text-sm">{member.name}</h4>
-                        <Badge variant="outline" className="text-xs mt-0.5">
-                          {roleLabels[member.role]} '{member.period.slice(-2)}
-                        </Badge>
-                      </div>
+        {/* PhD Alumni */}
+        <div className="mb-10">
+          <h3 className="text-xl font-semibold mb-4" style={{ color: "#0050B2" }}>
+            PhD Alumni
+          </h3>
+          <div className="grid md:grid-cols-2 gap-4">
+            {phdAlumni.map((student, index) => (
+              <Card key={index} className="border-t-4 border-navy/60">
+                <CardContent className="pt-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <h4 className="font-bold" style={{ color: "#0050B2" }}>{student.name}</h4>
+                    <Badge className={roleColors[student.role]}>{roleLabels[student.role]}</Badge>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-2">{student.period}</p>
+                  {student.links && student.links.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {student.links.map((link, linkIndex) => (
+                        <a
+                          key={linkIndex}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs text-teal hover:underline"
+                        >
+                          {link.label.includes("Thesis") ? (
+                            <FileText className="h-3 w-3" />
+                          ) : (
+                            <ExternalLink className="h-3 w-3" />
+                          )}
+                          {link.label}
+                        </a>
+                      ))}
                     </div>
-                    <p className="text-xs text-muted-foreground mt-2">
-                      {member.topic}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
           </div>
-        )}
+        </div>
+
+        {/* MSc Alumni */}
+        <div>
+          <h3 className="text-xl font-semibold mb-4" style={{ color: "#0050B2" }}>
+            MSc Alumni
+          </h3>
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-3">
+            {mscAlumni.map((student, index) => (
+              <Card key={index} className="bg-white">
+                <CardContent className="py-3 px-4">
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <h4 className="font-medium text-sm" style={{ color: "#0050B2" }}>{student.name}</h4>
+                      <p className="text-xs text-muted-foreground">{student.period}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
