@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Calendar, MapPin, Presentation, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Calendar, MapPin, ExternalLink, GraduationCap, Users, Award, Monitor, Presentation } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -13,6 +13,7 @@ interface Talk {
   location: string;
   type: string;
   year: number;
+  url?: string;
 }
 
 const Talks = () => {
@@ -27,9 +28,11 @@ const Talks = () => {
     
     let currentTalk: Partial<Talk> = {};
     
-    for (const line of lines) {
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      
       if (line.startsWith('### ')) {
-        if (currentTalk.title) {
+        if (currentTalk.title && currentTalk.event) {
           talks.push(currentTalk as Talk);
         }
         currentTalk = { title: line.replace('### ', '') };
@@ -44,6 +47,8 @@ const Talks = () => {
           const yearMatch = currentTalk.date.match(/\d{4}/);
           currentTalk.year = yearMatch ? parseInt(yearMatch[0]) : 2024;
         }
+      } else if (line.startsWith('http') && currentTalk.title && currentTalk.event) {
+        currentTalk.url = line.trim();
       }
     }
     
@@ -89,8 +94,25 @@ const Talks = () => {
         return 'bg-green-100 text-green-800 hover:bg-green-200';
       case 'best proffered papers':
         return 'bg-amber-100 text-amber-800 hover:bg-amber-200';
+      case 'online education':
+        return 'bg-purple-100 text-purple-800 hover:bg-purple-200';
       default:
         return 'bg-gray-100 text-gray-800 hover:bg-gray-200';
+    }
+  };
+
+  const getTypeIcon = (type: string) => {
+    switch (type.toLowerCase()) {
+      case 'educational':
+        return <GraduationCap className="h-4 w-4" />;
+      case 'seminar':
+        return <Users className="h-4 w-4" />;
+      case 'best proffered papers':
+        return <Award className="h-4 w-4" />;
+      case 'online education':
+        return <Monitor className="h-4 w-4" />;
+      default:
+        return <Presentation className="h-4 w-4" />;
     }
   };
 
@@ -164,14 +186,14 @@ const Talks = () => {
                     <CardHeader className="pb-2">
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex-1">
-                          <Badge className={`mb-2 ${getTypeColor(talk.type)}`}>
+                          <Badge className={`mb-2 inline-flex items-center gap-1.5 ${getTypeColor(talk.type)}`}>
+                            {getTypeIcon(talk.type)}
                             {talk.type}
                           </Badge>
                           <CardTitle className="text-lg leading-tight">
                             {talk.title}
                           </CardTitle>
                         </div>
-                        <Presentation className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-1" />
                       </div>
                     </CardHeader>
                     <CardContent>
@@ -188,6 +210,18 @@ const Talks = () => {
                           {talk.location}
                         </div>
                       </div>
+                      {talk.url && (
+                        <a 
+                          href={talk.url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-sm mt-3 hover:underline"
+                          style={{ color: "#0050B2" }}
+                        >
+                          <ExternalLink className="h-3.5 w-3.5" />
+                          Visit Event
+                        </a>
+                      )}
                     </CardContent>
                   </Card>
                 ))}
