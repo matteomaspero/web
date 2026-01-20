@@ -57,6 +57,24 @@ const Hero = () => {
             {/* Academic Profile Links */}
             <div className="flex flex-wrap gap-2 mb-6">
               <a 
+                href="https://www.linkedin.com/in/matteo-maspero-9a8629b0/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm bg-muted rounded-full hover:bg-muted/80 transition-colors"
+              >
+                <ExternalLink className="h-3.5 w-3.5" />
+                LinkedIn
+              </a>
+              <a 
+                href="https://bsky.app/profile/matteomaspero.bsky.social" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm bg-muted rounded-full hover:bg-muted/80 transition-colors"
+              >
+                <ExternalLink className="h-3.5 w-3.5" />
+                Bluesky
+              </a>
+              <a 
                 href="https://orcid.org/0000-0003-0347-3375" 
                 target="_blank" 
                 rel="noopener noreferrer"
