@@ -14,22 +14,22 @@ interface EditorialRole {
 
 const editorialRoles: EditorialRole[] = [
   {
-    journal: "PMB",
-    fullName: "Physics in Medicine & Biology",
-    role: "[Your Role - e.g., Associate Editor]",
-    period: "Since [Year]",
-    publisher: "IOP Publishing",
-    link: "https://iopscience.iop.org/journal/0031-9155",
-    description: "A leading journal publishing original research on the application of physics to medicine, physiology and biology."
-  },
-  {
     journal: "BJR|AI",
     fullName: "BJR|Artificial Intelligence",
-    role: "[Your Role - e.g., Editorial Board Member]",
-    period: "Since [Year]",
+    role: "Associate Editor",
+    period: "Since January 2024",
     publisher: "British Institute of Radiology",
     link: "https://academic.oup.com/bjrai",
-    description: "A peer-reviewed journal focusing on artificial intelligence applications in radiology and medical imaging."
+    description: "Editorial support for radiotherapy articles in a peer-reviewed journal focusing on artificial intelligence applications in radiology and medical imaging."
+  },
+  {
+    journal: "PMB",
+    fullName: "Physics in Medicine & Biology",
+    role: "Editorial Board Member",
+    period: "Since December 2024",
+    publisher: "IOP Publishing",
+    link: "https://iopscience.iop.org/journal/0031-9155",
+    description: "Editorial support for radiotherapy papers in a leading journal on the application of physics to medicine, physiology and biology."
   },
 ];
 
@@ -99,9 +99,6 @@ const EditorialSection = () => {
           ))}
         </div>
 
-        <p className="text-center text-muted-foreground mt-8 italic">
-          Please provide your specific roles and start dates for PMB and BJR|AI.
-        </p>
       </div>
     </section>
   );
