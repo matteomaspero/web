@@ -16,13 +16,13 @@ const ResearchSection = () => {
       icon: <FileText className="h-10 w-10" style={{ color: "#0050B2" }} />
     },
     {
-      title: "MR-guided Radiotherapy",
-      description: "MR-only workflows for treatment planning.",
+      title: "Adaptive Radiotherapy",
+      description: "Developing methods to facilitate online and offline adaptive radiotherapy.",
       icon: <Book className="h-10 w-10" style={{ color: "#0050B2" }} />
     },
     {
       title: "Image Synthesis",
-      description: "Synthetic CT generation from MRI for radiotherapy.",
+      description: "Synthetic CT generation for MRI-only radiotherapy and CBCT-based treatment planning.",
       icon: <BookOpen className="h-10 w-10" style={{ color: "#0050B2" }} />
     }
   ];

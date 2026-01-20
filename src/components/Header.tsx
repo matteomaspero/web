@@ -47,7 +47,7 @@ const Header = () => {
           md:flex md:items-center md:static md:bg-transparent md:shadow-none md:p-0
         `}>
           <ul className="flex flex-col md:flex-row md:items-center gap-1 md:gap-1">
-            {['Research', 'Team', 'Teaching', 'Publications', 'Awards', 'Editorial', 'Talks', 'Contact'].map((item) => (
+            {['Research', 'Team', 'Teaching', 'Awards', 'Editorial', 'Contact'].map((item) => (
               <li key={item}>
                 <a 
                   href={`#${item.toLowerCase()}`}
@@ -59,16 +59,22 @@ const Header = () => {
                 </a>
               </li>
             ))}
-            <li>
-              <Link 
-                to="/projects"
-                style={{ color: "#0050B2" }}
-                className="block px-4 py-2 hover:text-teal transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Projects
-              </Link>
-            </li>
+            {[
+              { name: 'Publications', path: '/publications' },
+              { name: 'Talks', path: '/talks' },
+              { name: 'Projects', path: '/projects' }
+            ].map((item) => (
+              <li key={item.name}>
+                <Link 
+                  to={item.path}
+                  style={{ color: "#0050B2" }}
+                  className="block px-4 py-2 hover:text-teal transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
