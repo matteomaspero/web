@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, MapPin, ArrowRight } from "lucide-react";
+import { Calendar, MapPin, ArrowRight, GraduationCap, Users, Award, Monitor, Presentation } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useMarkdownContent } from '@/utils/markdownLoader';
 
@@ -20,27 +19,33 @@ const TalksSection = () => {
   const parseTalks = (): Talk[] => {
     if (!content) return [];
     
-    const talkEntries = content.split(/###\s/).filter(Boolean);
-    // Remove the header if it exists
-    const talks = talkEntries[0]?.includes('Selected Talks') || talkEntries[0]?.includes('Invited Talks') 
-      ? talkEntries.slice(1) 
-      : talkEntries;
+    const talks: Talk[] = [];
+    const lines = content.split('\n');
     
-    return talks.map(entry => {
-      const lines = entry.split('\n').filter(Boolean);
-      const title = lines[0]?.trim() || '';
-      
-      const detailsLine = lines.length > 1 ? lines[1] : '';
-      const details = detailsLine.split(' - ').filter(Boolean);
-      
-      return {
-        title,
-        event: details[0] || '',
-        date: details[1] || '',
-        location: details[2] || '',
-        type: details[3] || 'Presentation'
-      };
-    });
+    let currentTalk: Partial<Talk> = {};
+    
+    for (const line of lines) {
+      if (line.startsWith('### ')) {
+        if (currentTalk.title && currentTalk.event) {
+          talks.push(currentTalk as Talk);
+        }
+        currentTalk = { title: line.replace('### ', '') };
+      } else if (line.includes(' - ') && currentTalk.title && !currentTalk.event) {
+        const parts = line.split(' - ');
+        if (parts.length >= 4) {
+          currentTalk.event = parts[0].trim();
+          currentTalk.date = parts[1].trim();
+          currentTalk.location = parts[2].trim();
+          currentTalk.type = parts[3].trim();
+        }
+      }
+    }
+    
+    if (currentTalk.title && currentTalk.event) {
+      talks.push(currentTalk as Talk);
+    }
+    
+    return talks;
   };
   
   const allTalks = parseTalks();
@@ -54,8 +59,25 @@ const TalksSection = () => {
         return 'bg-green-100 text-green-800';
       case 'best proffered papers':
         return 'bg-amber-100 text-amber-800';
+      case 'online education':
+        return 'bg-purple-100 text-purple-800';
       default:
         return 'bg-gray-100 text-gray-800';
+    }
+  };
+
+  const getTypeIcon = (type: string) => {
+    switch (type.toLowerCase()) {
+      case 'educational':
+        return <GraduationCap className="h-4 w-4" />;
+      case 'seminar':
+        return <Users className="h-4 w-4" />;
+      case 'best proffered papers':
+        return <Award className="h-4 w-4" />;
+      case 'online education':
+        return <Monitor className="h-4 w-4" />;
+      default:
+        return <Presentation className="h-4 w-4" />;
     }
   };
 
@@ -92,8 +114,9 @@ const TalksSection = () => {
                 >
                   <div className="absolute top-0 left-0 w-1 h-full" style={{ backgroundColor: "#0050B2" }} />
                   <div className="p-6 pl-8">
-                    <div className="mb-2">
-                      <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${getTypeColor(talk.type)}`}>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${getTypeColor(talk.type)}`}>
+                        {getTypeIcon(talk.type)}
                         {talk.type}
                       </span>
                     </div>
