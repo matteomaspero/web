@@ -12,37 +12,38 @@ interface Award {
 }
 
 const awards: Award[] = [
-  // Grants
-  {
-    title: "[Grant Title Placeholder]",
-    organization: "[Funding Body]",
-    year: "2022-2026",
-    type: 'grant',
-    description: "Description of the research grant and its objectives.",
-    amount: "€XXX,XXX",
-  },
-  {
-    title: "[Second Grant Placeholder]",
-    organization: "[Funding Body]",
-    year: "2020-2024",
-    type: 'grant',
-    description: "Description of the research focus.",
-  },
   // Awards
   {
-    title: "[Award Name Placeholder]",
-    organization: "[Awarding Organization]",
-    year: "2023",
+    title: "Best in Physics",
+    organization: "Physics in Medicine & Biology",
+    year: "2024",
     type: 'award',
-    description: "Recognition for outstanding contribution to the field.",
+    description: "For 'Generating synthetic computed tomography for radiotherapy: SynthRAD2023 challenge report'.",
+    link: "https://iopscience.iop.org/journal/0031-9155",
   },
-  // Fellowships
   {
-    title: "[Fellowship Name Placeholder]",
-    organization: "[Institution]",
-    year: "2021",
-    type: 'fellowship',
-    description: "Fellowship description and focus area.",
+    title: "Outstanding Reviewer Award",
+    organization: "Physics in Medicine & Biology",
+    year: "2018",
+    type: 'award',
+    description: "Recognition for exceptional peer review contributions.",
+    link: "https://publishingsupport.iopscience.iop.org/questions/physics-in-medicine-and-biology-2018-reviewer-awards/",
+  },
+  {
+    title: "Outstanding Reviewer Award",
+    organization: "Physics in Medicine & Biology",
+    year: "2017",
+    type: 'award',
+    description: "Recognition for exceptional peer review contributions.",
+    link: "https://publishingsupport.iopscience.iop.org/questions/physics-medicine-biology-2017-reviewer-awards/",
+  },
+  {
+    title: "Outstanding Reviewer Award",
+    organization: "Physics in Medicine & Biology",
+    year: "2016",
+    type: 'award',
+    description: "Recognition for exceptional peer review contributions.",
+    link: "https://iopscience.iop.org/journal/0031-9155/page/Reviewer_Awards_2016",
   },
 ];
 
@@ -180,9 +181,30 @@ const AwardsSection = () => {
           </div>
         </div>
 
-        <p className="text-center text-muted-foreground mt-8 italic">
-          Please provide your awards, grants, and fellowships to populate this section.
-        </p>
+        {/* Professional Memberships */}
+        <div className="mt-12">
+          <h3 className="text-xl font-semibold mb-6 flex items-center gap-2" style={{ color: "#0050B2" }}>
+            <Medal className="h-5 w-5" />
+            Professional Memberships
+          </h3>
+          <div className="flex flex-wrap gap-3 justify-center">
+            {[
+              { name: "NVKF", since: "2022" },
+              { name: "ISMRM", since: "2014" },
+              { name: "ESMRMB", since: "2014" },
+              { name: "ESTRO", since: "2014" },
+              { name: "SIF", since: "2014" },
+              { name: "EPS", since: "2014" },
+            ].map((membership, index) => (
+              <span 
+                key={index} 
+                className="px-4 py-2 bg-white rounded-full shadow-sm border text-sm font-medium"
+              >
+                {membership.name} <span className="text-muted-foreground text-xs">since {membership.since}</span>
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
