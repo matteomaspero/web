@@ -4,11 +4,11 @@
 ### AI in Medical Imaging
 Deep learning methods for medical image segmentation in radiation therapy.
 
-### MR-guided Radiotherapy
-MR-only workflows for treatment planning.
+### Adaptive Radiotherapy
+Developing methods to facilitate online and offline adaptive radiotherapy.
 
 ### Image Synthesis
-Synthetic CT generation from MRI for radiotherapy.
+Synthetic CT generation for MRI-only radiotherapy and CBCT-based treatment planning.
 
 ## Current Projects
 
