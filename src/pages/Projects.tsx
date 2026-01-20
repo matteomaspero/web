@@ -79,9 +79,9 @@ const projects: Project[] = [
   {
     id: "dlinrt",
     title: "DLinRT.eu",
-    description: "European consortium for deep learning in radiotherapy",
-    longDescription: "A European consortium cataloguing deep learning products and quality assurance tools for radiotherapy. The platform serves as a comprehensive resource for the radiotherapy community, featuring 69+ documented deep learning applications and providing guidance on clinical implementation.",
-    role: "Co-founder & Maintainer",
+    description: "Product register for deep learning in radiotherapy",
+    longDescription: "A comprehensive product register cataloguing deep learning solutions and quality assurance tools for radiotherapy. The platform serves as the leading resource for the radiotherapy community, featuring 69+ documented deep learning applications and providing guidance on clinical implementation.",
+    role: "Creator & Administrator",
     status: "ongoing",
     year: "2020-Present",
     links: [
@@ -91,7 +91,7 @@ const projects: Project[] = [
     highlights: [
       "69+ deep learning products catalogued",
       "QA tools and guidelines",
-      "European collaboration"
+      "Community resource"
     ]
   }
 ];
