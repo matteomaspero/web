@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import Header from "@/components/Header";
+import BackToTop from "@/components/BackToTop";
 
 interface Project {
   id: string;
@@ -117,15 +119,7 @@ const linkIcons = {
 const Projects = () => {
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="bg-white/90 backdrop-blur-sm shadow-sm sticky top-0 z-50">
-        <div className="section-container py-4">
-          <Link to="/" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
-            <ArrowLeft className="h-4 w-4" />
-            <span>Back to Home</span>
-          </Link>
-        </div>
-      </header>
+      <Header />
 
       {/* Main Content */}
       <main className="section-container py-12 md:py-16">
@@ -218,6 +212,7 @@ const Projects = () => {
           <p>© {new Date().getFullYear()} Matteo Maspero. All rights reserved.</p>
         </div>
       </footer>
+      <BackToTop />
     </div>
   );
 };

@@ -10,6 +10,8 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useMarkdownContent } from '@/utils/markdownLoader';
 import { Link } from 'react-router-dom';
+import Header from '@/components/Header';
+import BackToTop from '@/components/BackToTop';
 
 interface Publication {
   title: string;
@@ -99,7 +101,8 @@ const Publications = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="section-container py-8">
+      <Header />
+      <div className="section-container py-8 pt-24">
         <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors">
           <ArrowLeft className="h-4 w-4" />
           Back to Home
@@ -207,6 +210,7 @@ const Publications = () => {
           ))}
         </Tabs>
       </div>
+      <BackToTop />
     </div>
   );
 };

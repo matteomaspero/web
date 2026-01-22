@@ -1,10 +1,12 @@
-import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useMemo, useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, Calendar, MapPin, ExternalLink, GraduationCap, Users, Award, Monitor, Presentation } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useMarkdownContent } from '@/utils/markdownLoader';
+import Header from '@/components/Header';
+import BackToTop from '@/components/BackToTop';
 
 interface Talk {
   title: string;
@@ -18,7 +20,20 @@ interface Talk {
 
 const Talks = () => {
   const { content, isLoading } = useMarkdownContent('src/content/talks.md');
-  const [activeFilter, setActiveFilter] = useState<string>('All');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [activeFilter, setActiveFilter] = useState<string>(() => {
+    return searchParams.get('type') || 'All';
+  });
+
+  // Sync URL with filter state
+  useEffect(() => {
+    if (activeFilter === 'All') {
+      searchParams.delete('type');
+    } else {
+      searchParams.set('type', activeFilter);
+    }
+    setSearchParams(searchParams, { replace: true });
+  }, [activeFilter, searchParams, setSearchParams]);
 
   const parseTalks = (): Talk[] => {
     if (!content) return [];
@@ -116,10 +131,22 @@ const Talks = () => {
     }
   };
 
+  // Stats calculation
+  const stats = useMemo(() => {
+    const educationalCount = talks.filter(t => t.type.toLowerCase() === 'educational').length;
+    const seminarCount = talks.filter(t => t.type.toLowerCase() === 'seminar').length;
+    const conferenceCount = talks.filter(t => 
+      t.type.toLowerCase() === 'best proffered papers' || 
+      t.event.toLowerCase().includes('estro')
+    ).length;
+    return { total: talks.length, educational: educationalCount, seminars: seminarCount, conferences: conferenceCount };
+  }, [talks]);
+
   if (isLoading) {
     return (
       <div className="min-h-screen bg-background">
-        <div className="max-w-5xl mx-auto px-4 py-12">
+        <Header />
+        <div className="max-w-5xl mx-auto px-4 py-12 pt-24">
           <div className="animate-pulse space-y-8">
             <div className="h-8 bg-slate-200 rounded w-48"></div>
             <div className="h-12 bg-slate-200 rounded w-96"></div>
@@ -136,7 +163,8 @@ const Talks = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="max-w-5xl mx-auto px-4 py-12">
+      <Header />
+      <div className="max-w-5xl mx-auto px-4 py-12 pt-24">
         {/* Back navigation */}
         <Link 
           to="/" 
@@ -154,6 +182,26 @@ const Talks = () => {
           <p className="text-muted-foreground text-lg">
             {talks.length} invited talks, educational sessions, and seminars
           </p>
+        </div>
+
+        {/* Stats cards */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div className="bg-primary/5 rounded-lg p-4 text-center">
+            <div className="text-2xl font-bold text-primary">{stats.total}</div>
+            <div className="text-sm text-muted-foreground">Total Talks</div>
+          </div>
+          <div className="bg-blue-50 rounded-lg p-4 text-center">
+            <div className="text-2xl font-bold text-blue-600">{stats.educational}</div>
+            <div className="text-sm text-muted-foreground">Educational</div>
+          </div>
+          <div className="bg-green-50 rounded-lg p-4 text-center">
+            <div className="text-2xl font-bold text-green-600">{stats.seminars}</div>
+            <div className="text-sm text-muted-foreground">Seminars</div>
+          </div>
+          <div className="bg-amber-50 rounded-lg p-4 text-center">
+            <div className="text-2xl font-bold text-amber-600">{stats.conferences}</div>
+            <div className="text-sm text-muted-foreground">Conferences</div>
+          </div>
         </div>
 
         {/* Filter tabs */}
@@ -182,7 +230,7 @@ const Talks = () => {
               </h2>
               <div className="grid gap-4">
                 {groupedTalks[year].map((talk, index) => (
-                  <Card key={index} className="hover:shadow-md transition-shadow">
+                  <Card key={index} className="hover:shadow-md transition-all duration-300 hover:scale-[1.01]">
                     <CardHeader className="pb-2">
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex-1">
@@ -236,6 +284,7 @@ const Talks = () => {
           </div>
         )}
       </div>
+      <BackToTop />
     </div>
   );
 };
