@@ -76,9 +76,9 @@
 
 38. **Maspero M**, Savenije MHF, Dinkla AM, Seevinck PR, Intven MPW, Jurgenliemk-Schulz IM, Kerkmeijer LGW, van den Berg CAT. Dose evaluation of fast synthetic-CT generation using a generative adversarial network for general pelvis MR-only radiotherapy. Phys Med Biol. 2018;63(18):185001. [DOI](https://doi.org/10.1088/1361-6560/aada6d)
 
-39. **Maspero M**, Tyyger M, Tijssen RHN, Seevinck PR, Intven MPW, van den Berg CAT. Feasibility of magnetic resonance imaging-only rectum radiotherapy with a commercial synthetic-computed tomography generation solution. Phys Imaging Radiat Oncol. 2018;7:54-68. [DOI](https://doi.org/10.1016/j.clon.2018.08.009)
+39. **Maspero M**, Tyyger M, Tijssen RHN, Seevinck PR, Intven MPW, van den Berg CAT. Feasibility of magnetic resonance imaging-only rectum radiotherapy with a commercial synthetic-computed tomography generation solution. Phys Imaging Radiat Oncol. 2018;7:54-68. [DOI](https://doi.org/10.1016/j.phro.2018.09.002)
 
-40. Kerkmeijer LGW, **Maspero M**, Meijer GJ, van Zyp JRN van der Voort, de Boer HCJ, van den Berg CAT. Magnetic Resonance Imaging only Workflow for Radiotherapy Simulation and Planning in Prostate Cancer. Clin Oncol. 2018;11:692-701. [DOI](https://doi.org/j.clon.2018.08.009)
+40. Kerkmeijer LGW, **Maspero M**, Meijer GJ, van Zyp JRN van der Voort, de Boer HCJ, van den Berg CAT. Magnetic Resonance Imaging only Workflow for Radiotherapy Simulation and Planning in Prostate Cancer. Clin Oncol. 2018;11:692-701. [DOI](https://doi.org/10.1016/j.clon.2018.08.009)
 
 41. **Maspero M**, Seevinck PR, Willems NJW, Sikkes GG, de Kogel GJ, de Boer HCJ, van den Berg CAT. Evaluation of gold fiducial marker manual localisation for magnetic resonance-only prostate radiotherapy. Radiat Oncol. 2018;13(1):105. [DOI](https://doi.org/10.1186/s13014-018-1029-7)
 
