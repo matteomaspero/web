@@ -57,7 +57,7 @@ const Hero = () => {
             {/* Academic Profile Links */}
             <div className="flex flex-wrap gap-2 mb-6">
               <a 
-                href="https://www.linkedin.com/in/matteo-maspero-9a8629b0/" 
+                href="https://www.linkedin.com/in/matteo-maspero" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm bg-muted rounded-full hover:bg-muted/80 transition-colors"
