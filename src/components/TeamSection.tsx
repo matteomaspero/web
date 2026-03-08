@@ -27,7 +27,7 @@ const students: Student[] = [
     role: "msc",
     period: "2025-2026",
     status: "current",
-    topic: "[Research topic to be added]",
+    topic: "MAGIQ – Mammography Assessment using General models for Image Quality",
   },
   // PhD Alumni
   {
