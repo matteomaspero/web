@@ -148,6 +148,7 @@ const students: Student[] = [
     status: "alumni",
     topic: "Deep learning-based synthetic CT generation for paediatric brain MR-only radiotherapy",
     links: [
+      { label: "Thesis", url: "https://dspace.library.uu.nl/handle/1874/440636" },
       { label: "Publication", url: "https://doi.org/10.1016/j.radonc.2020.09.029" },
     ],
   },
