@@ -16,6 +16,14 @@ const awards: Award[] = [
   {
     title: "Best in Physics",
     organization: "Physics in Medicine & Biology",
+    year: "2026",
+    type: 'award',
+    description: "For the SynthRAD2025 challenge report.",
+    link: "https://iopscience.iop.org/journal/0031-9155",
+  },
+  {
+    title: "Best in Physics",
+    organization: "Physics in Medicine & Biology",
     year: "2024",
     type: 'award',
     description: "For 'Generating synthetic computed tomography for radiotherapy: SynthRAD2023 challenge report'.",

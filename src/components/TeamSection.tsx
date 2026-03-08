@@ -117,14 +117,20 @@ const students: Student[] = [
     role: "msc",
     period: "2021",
     status: "alumni",
-    topic: "MSc Thesis available upon request",
+    topic: "MSc Thesis",
+    links: [
+      { label: "Thesis", url: "https://essay.utwente.nl/#/85407" },
+    ],
   },
   {
     name: "Maria Leousi",
     role: "msc",
     period: "2021",
     status: "alumni",
-    topic: "MSc Thesis available upon request",
+    topic: "MSc Thesis",
+    links: [
+      { label: "Thesis", url: "https://cig-utrecht.org/thesis/Leousi_2021.pdf" },
+    ],
   },
   {
     name: "Laura G Bentvelzen",
