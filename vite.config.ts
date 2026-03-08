@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  base: mode === 'production' ? '/web/' : '/', // Updated base path for the new GitHub repo
+  base: process.env.GITHUB_ACTIONS ? '/web/' : '/',
   plugins: [
     react(),
     mode === 'development' &&
