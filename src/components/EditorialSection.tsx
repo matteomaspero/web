@@ -17,7 +17,7 @@ const editorialRoles: EditorialRole[] = [
     journal: "BJR|AI",
     fullName: "BJR|Artificial Intelligence",
     role: "Associate Editor",
-    period: "Since January 2024",
+    period: "Since January 2023",
     publisher: "British Institute of Radiology",
     link: "https://academic.oup.com/bjrai",
     description: "Editorial support for radiotherapy articles in a peer-reviewed journal focusing on artificial intelligence applications in radiology and medical imaging."

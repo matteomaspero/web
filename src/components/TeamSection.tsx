@@ -145,7 +145,7 @@ const TeamSection = () => {
   const mscAlumni = students.filter((s) => s.status === "alumni" && s.role === "msc");
 
   return (
-    <section id="team" className="py-16 bg-slate-50">
+    <section id="supervision" className="py-16 bg-slate-50">
       <div className="section-container">
         <div className="mb-8 text-center">
           <h2 className="text-3xl md:text-4xl mb-2" style={{ color: "#0050B2" }}>
