@@ -19,7 +19,7 @@ const students: Student[] = [
     role: "phd",
     period: "2024-2028",
     status: "current",
-    topic: "[Research topic to be added]",
+    topic: "Federated AI to enhance radiotherapy planning for children with renal tumors",
   },
   // Current MSc
   {
