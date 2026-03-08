@@ -69,14 +69,20 @@ const students: Student[] = [
     role: "msc",
     period: "2023",
     status: "alumni",
-    topic: "MSc Thesis available upon request",
+    topic: "Deep learning-based abdominal multi-organ segmentation for pediatric radiotherapy",
+    links: [
+      { label: "Thesis", url: "https://studenttheses.uu.nl/bitstream/handle/20.500.12932/43540/Major_Research_Project_Pablo_Xabier_Arregui_Garcia.pdf?sequence=1&isAllowed=y" },
+    ],
   },
   {
     name: "Konstantinos Drymas Vrakidis",
     role: "msc",
     period: "2022",
     status: "alumni",
-    topic: "MSc Thesis available upon request",
+    topic: "Feasibility of cone beam computed tomography with invertible recurrent inference machines",
+    links: [
+      { label: "Thesis", url: "https://studenttheses.uu.nl/handle/20.500.12932/43064" },
+    ],
   },
   {
     name: "Vish Sundar",
@@ -110,7 +116,10 @@ const students: Student[] = [
     role: "msc",
     period: "2021",
     status: "alumni",
-    topic: "MSc Thesis available upon request",
+    topic: "Invertible recurrent inference machines for low-dose computed tomography",
+    links: [
+      { label: "Thesis", url: "http://essay.utwente.nl/86820/" },
+    ],
   },
   {
     name: "Alexandru Moraru",
@@ -139,6 +148,7 @@ const students: Student[] = [
     status: "alumni",
     topic: "Deep learning-based synthetic CT generation for paediatric brain MR-only radiotherapy",
     links: [
+      { label: "Thesis", url: "https://dspace.library.uu.nl/handle/1874/440636" },
       { label: "Publication", url: "https://doi.org/10.1016/j.radonc.2020.09.029" },
     ],
   },
