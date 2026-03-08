@@ -116,7 +116,10 @@ const students: Student[] = [
     role: "msc",
     period: "2021",
     status: "alumni",
-    topic: "MSc Thesis available upon request",
+    topic: "Invertible recurrent inference machines for low-dose computed tomography",
+    links: [
+      { label: "Thesis", url: "http://essay.utwente.nl/86820/" },
+    ],
   },
   {
     name: "Alexandru Moraru",
