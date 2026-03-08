@@ -69,7 +69,10 @@ const students: Student[] = [
     role: "msc",
     period: "2023",
     status: "alumni",
-    topic: "MSc Thesis available upon request",
+    topic: "Deep learning-based abdominal multi-organ segmentation for pediatric radiotherapy",
+    links: [
+      { label: "Thesis", url: "https://studenttheses.uu.nl/bitstream/handle/20.500.12932/43540/Major_Research_Project_Pablo_Xabier_Arregui_Garcia.pdf?sequence=1&isAllowed=y" },
+    ],
   },
   {
     name: "Konstantinos Drymas Vrakidis",
