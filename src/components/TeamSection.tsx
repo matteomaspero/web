@@ -23,13 +23,6 @@ const students: Student[] = [
   },
   // Current MSc
   {
-    name: "Yiwen Chen",
-    role: "msc",
-    period: "2025-2026",
-    status: "current",
-    topic: "[Research topic to be added]",
-  },
-  {
     name: "Bar Melinarskiy",
     role: "msc",
     period: "2025-2026",
@@ -57,6 +50,13 @@ const students: Student[] = [
     ],
   },
   // MSc Alumni
+  {
+    name: "Yiwen Chen",
+    role: "msc",
+    period: "2025",
+    status: "alumni",
+    topic: "Learning Curves for Auto-contouring of Head-neck Tumors Using CT & PET Scans",
+  },
   {
     name: "Adine van Wier",
     role: "msc",
