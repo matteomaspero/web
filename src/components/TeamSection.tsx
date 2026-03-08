@@ -90,14 +90,20 @@ const students: Student[] = [
     role: "msc",
     period: "2022",
     status: "alumni",
-    topic: "MSc Thesis available upon request",
+    topic: "Investigating contrast generalisation in deep learning-based brain MRI-to-CT synthesis",
+    links: [
+      { label: "Publication", url: "https://doi.org/10.1016/j.ejmp.2023.102642" },
+    ],
   },
   {
     name: "Luuk Jacobs",
     role: "msc",
     period: "2022",
     status: "alumni",
-    topic: "MSc Thesis available upon request",
+    topic: "Generalizable synthetic MRI with physics-informed convolutional networks",
+    links: [
+      { label: "Publication", url: "https://doi.org/10.48550/arXiv.2305.12570" },
+    ],
   },
   {
     name: "Aishwarya M Gurusamy Muthuvelrabindran",
@@ -125,7 +131,10 @@ const students: Student[] = [
     role: "msc",
     period: "2019-2020",
     status: "alumni",
-    topic: "MSc Thesis available upon request",
+    topic: "Deep learning-based synthetic CT generation for paediatric brain MR-only radiotherapy",
+    links: [
+      { label: "Publication", url: "https://doi.org/10.1016/j.radonc.2020.09.029" },
+    ],
   },
 ];
 
