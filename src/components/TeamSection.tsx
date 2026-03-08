@@ -25,9 +25,9 @@ const students: Student[] = [
   {
     name: "Yiwen Chen",
     role: "msc",
-    period: "2025-2026",
-    status: "current",
-    topic: "[Research topic to be added]",
+    period: "2025",
+    status: "alumni",
+    topic: "Learning Curves for Auto-contouring of Head-neck Tumors Using CT & PET Scans",
   },
   {
     name: "Bar Melinarskiy",
