@@ -79,7 +79,10 @@ const students: Student[] = [
     role: "msc",
     period: "2022",
     status: "alumni",
-    topic: "MSc Thesis available upon request",
+    topic: "Feasibility of cone beam computed tomography with invertible recurrent inference machines",
+    links: [
+      { label: "Thesis", url: "https://studenttheses.uu.nl/handle/20.500.12932/43064" },
+    ],
   },
   {
     name: "Vish Sundar",
