@@ -131,7 +131,10 @@ const students: Student[] = [
     role: "msc",
     period: "2019-2020",
     status: "alumni",
-    topic: "MSc Thesis available upon request",
+    topic: "Deep learning-based synthetic CT generation for paediatric brain MR-only radiotherapy",
+    links: [
+      { label: "Publication", url: "https://doi.org/10.1016/j.radonc.2020.09.029" },
+    ],
   },
 ];
 
