@@ -8,7 +8,7 @@
 
 4. Rogowski V, Svalkvist A, **Maspero M**, Janssen T, Maruccio FC, Gorgisyan J, Scherman J, Häggström I, Wåhlstrand V, Gunnlaugsson A, et al. Impact of deep learning model uncertainty on manual corrections to MRI-based auto-segmentation in prostate cancer radiotherapy. J Appl Clin Med Phys. 2025;26(9):e70221. [DOI](https://doi.org/10.1002/acm2.70221)
 
-5. Kolenbrander ID, **Maspero M**, Pluim JPW, et al. Robust deformable image registration using synthetic data and transfer learning. Mach Learn Biomed Imaging. 2025;3(August 2025 issue):287-310. [DOI](https://doi.org/10.59275/j.melba.2025-5dab)
+5. Kolenbrander ID, **Maspero M**, Pluim JPW, et al. Robust deformable image registration using synthetic data and transfer learning. Mach Learn Biomed Imaging. 2025;3:287-310. [DOI](https://doi.org/10.59275/j.melba.2025-5dab)
 
 6. Thummerer A, **Maspero M**, van der Bijl E, Corradini S, Belka C, Landry G, Kurz C. Harmonizing organ-at-risk structure names using open-source large language models. Phys Imaging Radiat Oncol. 2025:100813. [DOI](https://doi.org/10.1016/j.phro.2025.100813)
 
@@ -48,7 +48,7 @@
 
 24. Terpstra ML, **Maspero M**, Bruijnen T, Verhoeff JJC, Lagendijk JJW, van den Berg CAT. Real-time 3D motion estimation from undersampled MRI using multi-resolution neural networks. Med Phys. 2021;48(11):6597-6613. [DOI](https://doi.org/10.1002/mp.15217)
 
-25. Koerkamp ML Groot, de Hond YJM, **Maspero M**, Kontaxis C, Mandija S, Vasmel JE, Charaghvandi RK, Philippens MEP, van Asselen B, van den Bongard HJGD, et al. Synthetic CT for single-fraction neoadjuvant partial breast irradiation on an MRI-linac. Phys Med Biol. 2021;66(8):085010. [DOI](https://doi.org/10.1088/1361-6560/abf1ba)
+25. Groot Koerkamp ML, de Hond YJM, **Maspero M**, Kontaxis C, Mandija S, Vasmel JE, Charaghvandi RK, Philippens MEP, van Asselen B, van den Bongard HJGD, et al. Synthetic CT for single-fraction neoadjuvant partial breast irradiation on an MRI-linac. Phys Med Biol. 2021;66(8):085010. [DOI](https://doi.org/10.1088/1361-6560/abf1ba)
 
 26. Hoeben BAW, Seravalli E, Wood AML, Bosman M, Matysiak WP, Maduro JH, van Lier ALHMW, **Maspero M**, Bol GH, Janssens GO. Influence of eye movement on lens dose and optic nerve target coverage during craniospinal irradiation. Clin Transl Radiat Oncol. 2021;31:28-33. [DOI](https://doi.org/10.1016/j.ctro.2021.08.009)
 
