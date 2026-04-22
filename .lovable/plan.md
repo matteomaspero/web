@@ -1,60 +1,66 @@
 
 
-## Review & Enhance Publications Page
+## Update Profile, Add COBRA2026 Challenge & New Initiatives
 
-### 1. Sync content file (critical)
+### 1. Profile update — drop "in-training"
 
-`src/pages/Publications.tsx` fetches `/src/content/publications.md`, which in production is served from `public/src/content/publications.md`. That mirror is currently stale (still the old list). I'll overwrite it with the new 54-entry list so the live site shows the updated publications including the new 2025 papers (SIOP-RTSG reply + main paper, SynthRAD2025, TrackRAD2025, MRgRT rectum delineation, robust DIR, OAR harmonization with LLMs, PET motion correction, paediatric upper-abdominal contouring, prostate MRI uncertainty corrections).
+Matteo became a fully certified Clinical Medical Physicist in August 2026. Update wording everywhere:
 
-### 2. Correctness & readability fixes in `src/content/publications.md`
+- `src/content/hero.md` — already says "Assistant Professor and Medical Physicist". Verify and align with mirror.
+- `public/src/content/hero.md` — currently "Assistant Professor and Clinical Medical Physicist-in-Training at UMC Utrecht". Replace with: **"Assistant Professor and Clinical Medical Physicist at UMC Utrecht"** (keep rest of paragraph).
+- Search the codebase for any other "in-training" / "in training" mentions (e.g. About blurbs, meta tags, footer, contact.md) and update them consistently.
 
-Small editorial cleanups while preserving Vancouver style:
+### 2. New project: COBRA2026
 
-- Entry 25 — "Koerkamp ML Groot" → reorder to **"Groot Koerkamp ML"** (correct surname ordering).
-- Entry 5 — drop the redundant "(August 2025 issue)" text; keep `2025;3:287-310`.
-- Entry 8/9/17/19/24/22 — confirm volume/issue/page formatting is consistent (`vol(issue):pages`).
-- Entry 53 (Caccia M, Ebolese A, Maspero M…) — has no journal/year, looks like an orphan record; mark/remove or add the missing venue (likely a CAEN technical note). I'll flag it in a comment but keep visible until confirmed.
-- Bold author marker is `**Maspero M**` everywhere — already consistent ✓.
-- DOIs all start with `https://doi.org/10....` — already consistent ✓.
+Add to `src/pages/Projects.tsx` projects array as a new **active** entry:
 
-### 3. Maximize findability on `/publications` page
+- **Title**: COBRA2026
+- **Description**: "Grand challenge on CBCT reconstruction from sinograms using deep learning"
+- **Long description**: International grand challenge on CBCT reconstruction from raw sinogram data using deep learning, on multi-vendor datasets. Aims to benchmark DL-based reconstruction approaches for cone-beam CT in image-guided and adaptive radiotherapy.
+- **Role**: Lead Organizer (confirm with user if different — assumed based on SynthRAD/TrackRAD pattern)
+- **Status**: active · **Year**: 2026
+- **Highlights**: "Multi-vendor CBCT data", "Sinogram-to-image DL reconstruction", "Radiotherapy applications"
+- **Links**: placeholder challenge site `https://cobra2026.grand-challenge.org/` (flagged — confirm URL)
 
-Current Publications page has tabs (All / Journal / Conference / Book) but no search and no year filter. I'll add:
+### 3. New initiatives section (educational tools + apps)
 
-- **Search box** — filter by title, author, journal, year (case-insensitive substring match across all fields).
-- **Year filter chip row** — quick-select chips (2025, 2024, 2023, …) to scope the list.
-- **Result count** — "Showing N of 54" updates live as filters change.
-- **Sort toggle** — Newest first (default) / Oldest first.
-- The tabs (Journal/Conference/Book) stay as a coarser filter and combine with search + year.
+The current Projects page only shows research challenges and DLinRT.eu. Add two new entries for the Lovable-built tools:
 
-Findability for SEO/structured data:
+**EduPlan-RT**
+- Description: "Educational treatment planning system for radiotherapy teaching"
+- Role: Creator · Status: ongoing · Year: 2025-Present
+- Link: https://eduplan-rt.lovable.app/
+- Highlights: "Web-based TPS", "Teaching tool", "Open access"
 
-- Add `<title>` and `<meta name="description">` updates via a small head update in `Publications.tsx` (using a simple `useEffect` on document.title — no helmet dep needed, matches existing pattern).
-- Inject a JSON-LD `ScholarlyArticle` list block so search engines index each publication.
+**RT Complexity Lens**
+- Description: "App and Python package for radiotherapy plan complexity analysis"
+- Role: Creator · Status: ongoing · Year: 2025-Present
+- Links: https://rt-complexity-lens.lovable.app/ (and Python package link if available — will ask)
+- Highlights: "Plan complexity metrics", "Interactive web app", "Python package"
 
-### 4. Add BibTeX export + descriptive table view
+### 4. New focus project: AI-based treatment planning
 
-Two new affordances on the Publications page header:
+Add as a research focus / active project entry:
 
-**a. "Download .bib" button**
-- Generates a BibTeX string client-side from the parsed publications array.
-- Each entry: `@article{maspero2025synthrad, author = {…}, title = {…}, journal = {…}, year = {…}, doi = {…}}` — type `@inproceedings` for conference, `@incollection` for book.
-- Citation key built from: first author lastname + year + first significant title word (lowercased, ASCII).
-- Triggers a browser download of `maspero-publications.bib`.
+- **Title**: AI-based Treatment Planning
+- **Description**: "Deep learning approaches for automated radiotherapy treatment planning"
+- **Status**: active · **Year**: 2024-Present
+- **Role**: Principal Investigator
+- **Highlights**: "Dose prediction", "Plan automation", "Clinical translation"
+- No external links (internal research focus) — or link to a relevant publication if user provides one.
 
-**b. View toggle: Cards ↔ Table**
-- Add a small icon toggle (Cards / Table) in the page header.
-- Table view (using existing `src/components/ui/table.tsx`) with columns: **#, Year, Authors, Title, Journal, Type, DOI**. Title cell uses normal weight, authors render with bold Maspero M, DOI column is a link icon. Sortable by Year by clicking the header.
-- Table is more scannable for a long list and supports Ctrl+F well (boosts findability further).
+Also reflect this in `src/content/research.md` and its `public/` mirror by adding a fourth research-focus block "AI-based Treatment Planning" so the homepage Research section surfaces it. Note: `ResearchSection.tsx` hardcodes 3 cards — extend the array to include the new focus area (4-card responsive grid: `md:grid-cols-2 lg:grid-cols-4`).
 
 ### Files affected
 
-- `public/src/content/publications.md` — overwrite with updated 54-entry list (mirror of `src/content/publications.md`).
-- `src/content/publications.md` — small editorial fixes (Groot Koerkamp ordering, drop "(August 2025 issue)").
-- `src/pages/Publications.tsx` — add search/year/sort filters, view toggle (cards/table), BibTeX download, document.title + JSON-LD, parse `type` more reliably (recognize "Med Phys" abstracts and "Proc Intl Soc Mag Reson Med" as conference; "In:" / "IOP Publishing" as book).
-- No new dependencies.
+- `src/content/hero.md` + `public/src/content/hero.md` — remove "in-training"
+- `src/content/research.md` + `public/src/content/research.md` — add AI-based Treatment Planning block
+- `src/components/ResearchSection.tsx` — add 4th research card, adjust grid to 4 columns on lg
+- `src/pages/Projects.tsx` — add COBRA2026, EduPlan-RT, RT Complexity Lens, AI-based Treatment Planning entries
+- Codebase scan for any other "in-training" copy → update in place
 
-### Out of scope
+### Open questions (will ask before implementing)
 
-- Updating the 6 highlighted publications shown on the homepage (`PublicationsSection.tsx`) — current selection is still representative; ask separately if you want this refreshed with a 2025 paper.
+1. COBRA2026 — your role (Lead Organizer?) and the official challenge URL, if it exists yet.
+2. RT Complexity Lens — is there a separate Python package URL (PyPI / GitHub) to link alongside the web app?
 
