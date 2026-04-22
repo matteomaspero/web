@@ -24,6 +24,72 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: "cobra2026",
+    title: "COBRA2026",
+    description: "Grand challenge on CBCT reconstruction from sinograms using deep learning",
+    longDescription: "International grand challenge on CBCT reconstruction from raw sinogram data using deep learning, on multi-vendor datasets. Aims to benchmark DL-based reconstruction approaches for cone-beam CT in image-guided and adaptive radiotherapy.",
+    role: "Lead Organizer",
+    status: "active",
+    year: "2026",
+    links: [
+      { label: "Challenge Site", url: "https://cobra2026.grand-challenge.org/", icon: "site" }
+    ],
+    highlights: [
+      "Multi-vendor CBCT data",
+      "Sinogram-to-image DL reconstruction",
+      "Radiotherapy applications"
+    ]
+  },
+  {
+    id: "ai-treatment-planning",
+    title: "AI-based Treatment Planning",
+    description: "Deep learning approaches for automated radiotherapy treatment planning",
+    longDescription: "Focus research project developing deep learning approaches for automated radiotherapy treatment planning, including dose prediction, plan automation, and clinical translation of AI-driven planning workflows.",
+    role: "Principal Investigator",
+    status: "active",
+    year: "2024-Present",
+    links: [],
+    highlights: [
+      "Dose prediction",
+      "Plan automation",
+      "Clinical translation"
+    ]
+  },
+  {
+    id: "eduplan-rt",
+    title: "EduPlan-RT",
+    description: "Educational treatment planning system for radiotherapy teaching",
+    longDescription: "Web-based educational treatment planning system designed to teach the principles of radiotherapy planning. Open-access tool for students and trainees to explore beam configuration, dose calculation, and plan evaluation.",
+    role: "Creator",
+    status: "ongoing",
+    year: "2025-Present",
+    links: [
+      { label: "Web App", url: "https://eduplan-rt.lovable.app/", icon: "site" }
+    ],
+    highlights: [
+      "Web-based TPS",
+      "Teaching tool",
+      "Open access"
+    ]
+  },
+  {
+    id: "rt-complexity-lens",
+    title: "RT Complexity Lens",
+    description: "App and Python package for radiotherapy plan complexity analysis",
+    longDescription: "Interactive web app and accompanying Python package for analyzing the complexity of radiotherapy treatment plans. Provides metrics and visualizations to support QA, plan comparison, and research on plan deliverability.",
+    role: "Creator",
+    status: "ongoing",
+    year: "2025-Present",
+    links: [
+      { label: "Web App", url: "https://rt-complexity-lens.lovable.app/", icon: "site" }
+    ],
+    highlights: [
+      "Plan complexity metrics",
+      "Interactive web app",
+      "Python package"
+    ]
+  },
+  {
     id: "synthrad2025",
     title: "SynthRAD2025",
     description: "Expanded grand challenge on synthetic CT generation",

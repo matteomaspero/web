@@ -8,7 +8,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Dr. Matteo Maspero</h3>
             <p className="text-white/70 mb-4">
-              Human being, Assistant Professor and Medical Physicist at UMC Utrecht, focusing on AI for adaptive radiotherapy.
+              Assistant Professor and Clinical Medical Physicist at UMC Utrecht, focusing on AI for adaptive radiotherapy.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.linkedin.com/in/matteo-maspero-9a8629b0/" className="text-white/70 hover:text-white transition-colors">
