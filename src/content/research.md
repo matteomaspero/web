@@ -10,6 +10,9 @@ Developing methods to facilitate online and offline adaptive radiotherapy.
 ### Image Synthesis
 Synthetic CT generation for MRI-only radiotherapy and CBCT-based treatment planning.
 
+### AI-based Treatment Planning
+Deep learning approaches for automated radiotherapy treatment planning, including dose prediction and plan automation.
+
 ## Current Projects
 
 ### AI for Radiotherapy Planning

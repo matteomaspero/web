@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Book, FileText, BookOpen } from "lucide-react";
+import { Book, FileText, BookOpen, Sparkles } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useMarkdownContent } from '@/utils/markdownLoader';
 
@@ -24,6 +24,11 @@ const ResearchSection = () => {
       title: "Image Synthesis",
       description: "Synthetic CT generation for MRI-only radiotherapy and CBCT-based treatment planning.",
       icon: <BookOpen className="h-10 w-10" style={{ color: "#0050B2" }} />
+    },
+    {
+      title: "AI-based Treatment Planning",
+      description: "Deep learning approaches for automated radiotherapy treatment planning, including dose prediction and plan automation.",
+      icon: <Sparkles className="h-10 w-10" style={{ color: "#0050B2" }} />
     }
   ];
 
@@ -70,7 +75,7 @@ const ResearchSection = () => {
           )}
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {researchAreas.map((area, index) => (
             <Card key={index} className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all">
               <CardHeader className="bg-white pb-2">
