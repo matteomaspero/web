@@ -1,66 +1,41 @@
+## Revise team, credentials, and publications
 
+### 1. Add three new current MSc students
 
-## Update Profile, Add COBRA2026 Challenge & New Initiatives
+In `src/components/TeamSection.tsx`, append to `students` (status `current`, role `msc`) with placeholder topics/tags to be filled in later:
 
-### 1. Profile update — drop "in-training"
+- **Imane El Idrissi** — period `Jun 2026 - Mar 2027` — topic: `TBD (thesis in progress)`
+- **Vasileios Rotsas** — period `Aug 2026 - Jun 2027` — topic: `TBD (thesis in progress)`
+- **Sofia Ruggeri** — period `Oct 2026 - Mar 2027` — topic: `TBD (thesis in progress)`
 
-Matteo became a fully certified Clinical Medical Physicist in August 2026. Update wording everywhere:
+The "Current Students" grid already renders any `status: current` entries, so it will show the two existing (Ding, Melinarskiy) plus these three in a responsive 3-column grid — no layout code changes required.
 
-- `src/content/hero.md` — already says "Assistant Professor and Medical Physicist". Verify and align with mirror.
-- `public/src/content/hero.md` — currently "Assistant Professor and Clinical Medical Physicist-in-Training at UMC Utrecht". Replace with: **"Assistant Professor and Clinical Medical Physicist at UMC Utrecht"** (keep rest of paragraph).
-- Search the codebase for any other "in-training" / "in training" mentions (e.g. About blurbs, meta tags, footer, contact.md) and update them consistently.
+### 2. Reflect NVKF certification (staff at UMC Utrecht since 15 Aug 2026)
 
-### 2. New project: COBRA2026
+Small copy update so this is discoverable:
 
-Add to `src/pages/Projects.tsx` projects array as a new **active** entry:
+- `src/content/hero.md` and `public/src/content/hero.md` — tighten the intro to: `Assistant Professor and Clinical Medical Physicist (NVKF-certified, Aug 2026) at UMC Utrecht.` Keep the rest of the paragraph.
+- Verify no stray "in-training" copy remains anywhere (`rg -i "in.?training"`).
+- No new section added unless you want one — keeping it in the hero preserves the minimalist layout.
 
-- **Title**: COBRA2026
-- **Description**: "Grand challenge on CBCT reconstruction from sinograms using deep learning"
-- **Long description**: International grand challenge on CBCT reconstruction from raw sinogram data using deep learning, on multi-vendor datasets. Aims to benchmark DL-based reconstruction approaches for cone-beam CT in image-guided and adaptive radiotherapy.
-- **Role**: Lead Organizer (confirm with user if different — assumed based on SynthRAD/TrackRAD pattern)
-- **Status**: active · **Year**: 2026
-- **Highlights**: "Multi-vendor CBCT data", "Sinogram-to-image DL reconstruction", "Radiotherapy applications"
-- **Links**: placeholder challenge site `https://cobra2026.grand-challenge.org/` (flagged — confirm URL)
+### 3. Publications sweep — add missing recent papers
 
-### 3. New initiatives section (educational tools + apps)
+Findability step (research, then edit):
 
-The current Projects page only shows research challenges and DLinRT.eu. Add two new entries for the Lovable-built tools:
+1. Search Google Scholar + arXiv for `Maspero M` publications dated 2025–2026 that are NOT already in `src/content/publications.md`.
+2. For each new item, add a Vancouver-style entry consistent with existing formatting: authors with **Maspero M** bolded, title, venue, year, DOI/arXiv link, and `type` (journal / preprint / conference).
+3. Preserve chronological ordering (newest first) and re-generate the BibTeX export used by the Publications page so the `.bib` download stays in sync.
+4. Mirror updates in `public/src/content/publications.md`.
 
-**EduPlan-RT**
-- Description: "Educational treatment planning system for radiotherapy teaching"
-- Role: Creator · Status: ongoing · Year: 2025-Present
-- Link: https://eduplan-rt.lovable.app/
-- Highlights: "Web-based TPS", "Teaching tool", "Open access"
-
-**RT Complexity Lens**
-- Description: "App and Python package for radiotherapy plan complexity analysis"
-- Role: Creator · Status: ongoing · Year: 2025-Present
-- Links: https://rt-complexity-lens.lovable.app/ (and Python package link if available — will ask)
-- Highlights: "Plan complexity metrics", "Interactive web app", "Python package"
-
-### 4. New focus project: AI-based treatment planning
-
-Add as a research focus / active project entry:
-
-- **Title**: AI-based Treatment Planning
-- **Description**: "Deep learning approaches for automated radiotherapy treatment planning"
-- **Status**: active · **Year**: 2024-Present
-- **Role**: Principal Investigator
-- **Highlights**: "Dose prediction", "Plan automation", "Clinical translation"
-- No external links (internal research focus) — or link to a relevant publication if user provides one.
-
-Also reflect this in `src/content/research.md` and its `public/` mirror by adding a fourth research-focus block "AI-based Treatment Planning" so the homepage Research section surfaces it. Note: `ResearchSection.tsx` hardcodes 3 cards — extend the array to include the new focus area (4-card responsive grid: `md:grid-cols-2 lg:grid-cols-4`).
+If any candidate paper is ambiguous (co-author order, in-press status, preprint vs accepted version), I'll list them at the end of the change with a one-line question rather than guessing.
 
 ### Files affected
 
-- `src/content/hero.md` + `public/src/content/hero.md` — remove "in-training"
-- `src/content/research.md` + `public/src/content/research.md` — add AI-based Treatment Planning block
-- `src/components/ResearchSection.tsx` — add 4th research card, adjust grid to 4 columns on lg
-- `src/pages/Projects.tsx` — add COBRA2026, EduPlan-RT, RT Complexity Lens, AI-based Treatment Planning entries
-- Codebase scan for any other "in-training" copy → update in place
+- `src/components/TeamSection.tsx`
+- `src/content/hero.md`, `public/src/content/hero.md`
+- `src/content/publications.md`, `public/src/content/publications.md`
+- Any codebase reference to "in-training" (scan)
 
-### Open questions (will ask before implementing)
+### Out of scope
 
-1. COBRA2026 — your role (Lead Organizer?) and the official challenge URL, if it exists yet.
-2. RT Complexity Lens — is there a separate Python package URL (PyPI / GitHub) to link alongside the web app?
-
+Topic descriptions, tags, and thesis links for the three new students (placeholders now, fill in when known).
