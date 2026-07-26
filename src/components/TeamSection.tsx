@@ -32,6 +32,27 @@ const students: Student[] = [
     topic: "MAGIQ – Mammography Assessment using General models for Image Quality",
     tags: ["Image Quality", "Foundation Models"],
   },
+  {
+    name: "Imane El Idrissi",
+    role: "msc",
+    period: "Jun 2026 – Mar 2027",
+    status: "current",
+    topic: "TBD (thesis in progress)",
+  },
+  {
+    name: "Vasileios Rotsas",
+    role: "msc",
+    period: "Aug 2026 – Jun 2027",
+    status: "current",
+    topic: "TBD (thesis in progress)",
+  },
+  {
+    name: "Sofia Ruggeri",
+    role: "msc",
+    period: "Oct 2026 – Mar 2027",
+    status: "current",
+    topic: "TBD (thesis in progress)",
+  },
   // PhD Alumni
   {
     name: "Iris Kolenbrander",
