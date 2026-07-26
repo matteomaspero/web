@@ -1,6 +1,20 @@
 ## Publications
 
-1. Ding M, **Maspero M**, Harrabi S, Jouglar E, Vennarini S, Spencer T, Weber B, Magelssen H, Van Beek K, Stoica R, et al. Reply to comment on impact of deep learning on CT-based organ-at-risk delineation for flank irradiation in paediatric renal tumours: A SIOP-RTSG radiotherapy committee. Clin Transl Radiat Oncol. 2025:101087. [DOI](https://doi.org/10.1016/j.ctro.2025.101087)
+1. Blöcker TJ, Görts PAW, Wang Y, Lombardo E, Thummerer A, Fan Y, et al., **Maspero M**. MRIgRT real-time target tracking: TrackRAD2025 challenge report. Med Image Anal. 2026:104134. [DOI](https://doi.org/10.1016/j.media.2026.104134)
+
+2. Ding M, Radu AM, Spijkerman R, van Grotel M, Littooij AS, van Tinteren H, et al., **Maspero M**. Long-term locoregional control and pattern of recurrences after implementation of highly conformal flank target volumes and image-guided intensity modulated arc therapy for paediatric renal tumours. Int J Radiat Oncol Biol Phys. 2026. [Link](https://doi.org/10.1016/j.ijrobp.2026.01.001)
+
+3. Rogowski V, Terpstra ML, Wahl N, Kamp F, van der Bijl E, Galapon A Jr, et al., **Maspero M**. Generating synthetic computed tomography for radiotherapy: SynthRAD2025 challenge report. arXiv preprint. 2026. [arXiv:2605.13555](https://arxiv.org/abs/2605.13555)
+
+4. Ding M, Knoll M, Harrabi S, van Grotel M, Littooij AS, van Noesel M, et al., **Maspero M**. Overcoming data scarcity through multi-center federated learning for organs-at-risk segmentation in pediatric upper abdominal radiotherapy. arXiv preprint. 2026. [arXiv:2605.06820](https://arxiv.org/abs/2605.06820)
+
+5. Xiao F, Delopoulos N, Wahl N, Volz L, Bucher L, **Maspero M**, Palacios M, et al. DoseRAD2026 Challenge dataset: AI-accelerated photon and proton dose calculation for radiotherapy. arXiv preprint. 2026. [arXiv:2604.12778](https://arxiv.org/abs/2604.12778)
+
+6. Cusumano D, **Maspero M**, Vellini L, Alvarez-Michael E, Barateau A, et al. Standardizing MRI-only radiotherapy commissioning: benchmark dataset and acceptance levels from the MESCAL initiative. Radiother Oncol. 2026:111530. [DOI](https://doi.org/10.1016/j.radonc.2026.111530)
+
+7. van Lune J, Mandija S, van der Heide O, **Maspero M**, Schilder MB, et al. Quantitative mapping from conventional MRI using self-supervised physics-guided deep learning: applications to a large-scale, clinically heterogeneous dataset. arXiv preprint. 2026. [arXiv:2601.05063](https://arxiv.org/abs/2601.05063)
+
+8. Ding M, **Maspero M**, Harrabi S, Jouglar E, Vennarini S, Spencer T, Weber B, Magelssen H, Van Beek K, Stoica R, et al. Reply to comment on impact of deep learning on CT-based organ-at-risk delineation for flank irradiation in paediatric renal tumours: A SIOP-RTSG radiotherapy committee. Clin Transl Radiat Oncol. 2025:101087. [DOI](https://doi.org/10.1016/j.ctro.2025.101087)
 
 2. Kolenbrander ID, Kuijer KM, Savenije MHF, Meijer GJ, Intven MPW, Pluim JPW, **Maspero M**. Comparison of deep learning-based segmentation and registration using pre-treatment contours for online rectal delineation in magnetic resonance-guided radiotherapy. Phys Imaging Radiat Oncol. 2025:100854. [DOI](https://doi.org/10.1016/j.phro.2025.100854)
 
