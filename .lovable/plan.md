@@ -1,45 +1,26 @@
-## Goal
+## Add AIinRT2027 symposium to Projects
 
-Update the Invited Talks page and the Student Supervision section with newly-provided information.
+Add a new entry near the top of `projects` in `src/pages/Projects.tsx`:
 
-## Changes
+- **id**: `aiinrt2027`
+- **title**: `AIinRT 2027`
+- **description**: "Scientific symposium on Artificial Intelligence in Radiotherapy"
+- **longDescription**: "International symposium in Utrecht bringing together the AI-in-radiotherapy community. Organised by UMC Utrecht (Computational Imaging Group) in collaboration with the Princess Máxima Center and DLinRT.eu. Programme built from peer-reviewed abstract submissions; attendee registration handled separately."
+- **role**: `Co-Organizer` (signals organizer status; matches existing role vocabulary and renders as a visible badge on the card)
+- **status**: `active` (renders as "Active" badge — closest existing status for an upcoming event; no new status introduced)
+- **year**: `2027`
+- **links**:
+  - `{ label: "Symposium Site", url: "https://aiinrt.org", icon: "site" }`
+  - `{ label: "Previous edition (2026)", url: "https://aiinrt.org/2026/index.html", icon: "site" }`
+- **highlights**: `["1–2 April 2027, Utrecht", "Call for Abstracts opens Sep 1, 2026", "UMC Utrecht × Princess Máxima × DLinRT.eu"]`
 
-### 1. Add 5 new 2026 talks to `src/content/talks.md` and `public/src/content/talks.md`
+Placement: insert immediately after `synthrad2025` and `cobra2026`, before `ai-treatment-planning`, so the two flagship active challenges lead and the upcoming symposium follows.
 
-Insert at the top (chronological, newest first). Titles, exact dates and URLs will be filled in from a live web search (already dispatched). Placeholder entries:
+## Link verification
 
-- **ESTRO 2026 (Copenhagen, May 2026)** – ORE (Optimisation, Reconstruction, Evaluation) pre-meeting course. Type: `Educational`.
-- **ESTRO 2026 (Copenhagen, May 2026)** – Best in Physics proffered papers, "SynthRAD2025 challenge report". Type: `Best Proffered Papers`.
-- **MIART workshop @ MICCAI 2026 (Oct 1, 2026)** – Keynote. Type: `Seminar` (or new `Keynote` type — see question below).
-- **Time to Adapt 2026, Olbia, Italy (Sep 9, 2026)** – Talk on AI. Type: `Seminar`.
-- **SSRMP annual meeting, Switzerland (March 2026)** – Overview of AI in Radiotherapy. Type: `Educational`.
+`https://aiinrt.org` was fetched successfully (returned the AIinRT2027 landing page). Using the URL exactly as `https://aiinrt.org` (no `www`, `https` scheme) per the request.
 
-Format matches existing entries:
+## Out of scope
 
-```
-### <Title>
-<Event> - <Month Year> - <City, Country> - <Type>
-<URL>
-```
-
-### 2. Move Bar Melinarskiy from Current MSc → MSc Alumni in `src/components/TeamSection.tsx`
-
-- Change `status: "current"` → `"alumni"`, update `period: "2025-2026"` → `"2026"` (or keep).
-- Search for a public thesis link (TU Delft / UU repository) — dispatched. If found, add to `links`; if not, keep topic line and note "Thesis available upon request".
-
-### 3. Optional: introduce a `Keynote` type
-
-If desired, add a new badge color + icon (e.g. `Star`) in `TalksSection.tsx` and `Talks.tsx` for keynote presentations. Otherwise MIART keynote uses the existing `Seminar` type.
-
-## Open question
-
-Should the MIAT keynote get its own **Keynote** talk type (new color/icon), or reuse `Seminar`?
-
-Introduce a keynote
-
-## Files touched
-
-- `src/content/talks.md`
-- `public/src/content/talks.md`
-- `src/components/TeamSection.tsx`
-- (optional) `src/components/TalksSection.tsx`, `src/pages/Talks.tsx` for new Keynote type
+- No new "Upcoming Events" section or new status type — the existing `active` badge plus the "1–2 April 2027" highlight and the Co-Organizer role communicate both the upcoming date and the organizer role. If you'd rather have a dedicated Upcoming Events section on the Talks page, say so and I'll switch approaches.
+- No changes to Talks page or content markdown.

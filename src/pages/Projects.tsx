@@ -60,6 +60,24 @@ const projects: Project[] = [
     ]
   },
   {
+    id: "aiinrt2027",
+    title: "AIinRT 2027",
+    description: "Scientific symposium on Artificial Intelligence in Radiotherapy",
+    longDescription: "International symposium in Utrecht bringing together the AI-in-radiotherapy community. Organised by UMC Utrecht (Computational Imaging Group) in collaboration with the Princess Máxima Center and DLinRT.eu. Programme built from peer-reviewed abstract submissions; attendee registration handled separately.",
+    role: "Co-Organizer",
+    status: "active",
+    year: "2027",
+    links: [
+      { label: "Symposium Site", url: "https://aiinrt.org", icon: "site" },
+      { label: "Previous edition (2026)", url: "https://aiinrt.org/2026/index.html", icon: "site" }
+    ],
+    highlights: [
+      "1–2 April 2027, Utrecht",
+      "Call for Abstracts opens Sep 1, 2026",
+      "UMC Utrecht × Princess Máxima × DLinRT.eu"
+    ]
+  },
+  {
     id: "ai-treatment-planning",
     title: "AI-based Treatment Planning",
     description: "Deep learning approaches for automated radiotherapy treatment planning",
