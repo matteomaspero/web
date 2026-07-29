@@ -33,7 +33,14 @@ const Footer = () => {
                   <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5 12 0Z" />
                 </svg>
               </a>
+              <a href="https://openalex.org/authors/A5015345825" className="text-white/70 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                <span className="sr-only">OpenAlex</span>
+                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8Zm-1-13h2v6h-2Zm0 8h2v2h-2Z" />
+                </svg>
+              </a>
             </div>
+
           </div>
           
           <div>
