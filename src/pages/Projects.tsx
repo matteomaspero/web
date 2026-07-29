@@ -209,9 +209,6 @@ const linkIcons = {
 };
 
 const Projects = () => {
-  return (
-    <div className="min-h-screen bg-background">
-      <Header />
 
   return (
     <div className="min-h-screen bg-background">
