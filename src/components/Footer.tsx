@@ -1,4 +1,6 @@
-import { BookOpen, FileText, GraduationCap, ExternalLink } from 'lucide-react';
+import { BookOpen, FileText, GraduationCap, ExternalLink, Users, Award, BookMarked, FolderKanban, Mic } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import OpenAlexIcon from '@/components/icons/OpenAlexIcon';
 
 const Footer = () => {
   return (
@@ -35,9 +37,7 @@ const Footer = () => {
               </a>
               <a href="https://openalex.org/authors/A5015345825" className="text-white/70 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
                 <span className="sr-only">OpenAlex</span>
-                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8Zm-1-13h2v6h-2Zm0 8h2v2h-2Z" />
-                </svg>
+                <OpenAlexIcon className="h-6 w-6" />
               </a>
             </div>
 
