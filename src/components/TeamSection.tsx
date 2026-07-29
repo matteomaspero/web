@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, ExternalLink, FileText, Tag } from "lucide-react";
+import { GraduationCap, ExternalLink, FileText, Tag, Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -25,14 +25,7 @@ const students: Student[] = [
   },
   // Current MSc
   {
-    name: "Bar Melinarskiy",
-    role: "msc",
-    period: "2025-2026",
-    status: "current",
-    topic: "MAGIQ – Mammography Assessment using General models for Image Quality",
-    tags: ["Image Quality", "Foundation Models"],
-  },
-  {
+
     name: "Imane El Idrissi",
     role: "msc",
     period: "Jun 2026 – Mar 2027",
@@ -75,6 +68,15 @@ const students: Student[] = [
   },
   // MSc Alumni
   {
+    name: "Bar Melinarskiy",
+    role: "msc",
+    period: "2025-2026",
+    status: "alumni",
+    topic: "MAGIQ – Mammography Assessment using General models for Image Quality",
+    tags: ["Image Quality", "Foundation Models"],
+  },
+  {
+
     name: "Yiwen Chen",
     role: "msc",
     period: "2025",
