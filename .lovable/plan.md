@@ -1,41 +1,48 @@
-## Revise team, credentials, and publications
+## Refresh research focus + projects highlights
 
-### 1. Add three new current MSc students
+### 1. Research focus copy — deduplicate
 
-In `src/components/TeamSection.tsx`, append to `students` (status `current`, role `msc`) with placeholder topics/tags to be filled in later:
+`src/content/research.md` and `public/src/content/research.md` currently repeat "deep learning" and mention treatment planning both under a focus card and under "Current Projects". Rewrite so each of the four cards has a distinct angle, then trim the "Current Projects" block to avoid saying the same thing twice.
 
-- **Imane El Idrissi** — period `Jun 2026 - Mar 2027` — topic: `TBD (thesis in progress)`
-- **Vasileios Rotsas** — period `Aug 2026 - Jun 2027` — topic: `TBD (thesis in progress)`
-- **Sofia Ruggeri** — period `Oct 2026 - Mar 2027` — topic: `TBD (thesis in progress)`
+Proposed cards (concise, non-overlapping):
 
-The "Current Students" grid already renders any `status: current` entries, so it will show the two existing (Ding, Melinarskiy) plus these three in a responsive 3-column grid — no layout code changes required.
+- **Adaptive Radiotherapy** — Online/offline MR-guided adaptation workflows enabling daily plan re-optimisation.
+- **Image Synthesis** — Synthetic CT from MRI and CBCT for MRI-only and CBCT-guided treatment planning (SynthRAD initiative).
+- **AI for Segmentation & Registration** — Robust auto-contouring and deformable registration across anatomies and vendors.
+- **AI-based Treatment Planning** — Dose prediction and plan automation, from research prototypes to clinical translation.
 
-### 2. Reflect NVKF certification (staff at UMC Utrecht since 15 Aug 2026)
+"Current Projects" block collapses to a single short paragraph about ongoing head-and-neck / paediatric planning work, no bullet list (bullets duplicate the cards).
 
-Small copy update so this is discoverable:
+### 2. Projects page — reorder + drop highlight chips
 
-- `src/content/hero.md` and `public/src/content/hero.md` — tighten the intro to: `Assistant Professor and Clinical Medical Physicist (NVKF-certified, Aug 2026) at UMC Utrecht.` Keep the rest of the paragraph.
-- Verify no stray "in-training" copy remains anywhere (`rg -i "in.?training"`).
-- No new section added unless you want one — keeping it in the hero preserves the minimalist layout.
+In `src/pages/Projects.tsx`:
 
-### 3. Publications sweep — add missing recent papers
+- Move **SynthRAD2025** to the top of the `projects` array (currently 5th) so it leads the page. COBRA2026 follows, then the other active initiatives, then completed work.
+- Remove the `highlights` chip row from the card render (keep the `highlights` field in the data for now, just stop rendering it) — the chips repeat what the description already says and add visual noise. Status + year badges stay.
 
-Findability step (research, then edit):
+### 3. High-impact recent work — surface on Projects page
 
-1. Search Google Scholar + arXiv for `Maspero M` publications dated 2025–2026 that are NOT already in `src/content/publications.md`.
-2. For each new item, add a Vancouver-style entry consistent with existing formatting: authors with **Maspero M** bolded, title, venue, year, DOI/arXiv link, and `type` (journal / preprint / conference).
-3. Preserve chronological ordering (newest first) and re-generate the BibTeX export used by the Publications page so the `.bib` download stays in sync.
-4. Mirror updates in `public/src/content/publications.md`.
+Add short "Featured outputs" links inline in the two flagship entries, drawn from confirmed publications already in `publications.md`:
 
-If any candidate paper is ambiguous (co-author order, in-press status, preprint vs accepted version), I'll list them at the end of the change with a one-line question rather than guessing.
+- **SynthRAD2025**: add link to the 2026 challenge report (arXiv:2605.13555) and the 2025 dataset paper (Med Phys, doi 10.1002/mp.17981) alongside the existing challenge site.
+- **TrackRAD2025**: add link to the 2026 Med Image Anal report (doi 10.1016/j.media.2026.104134) alongside the existing site + preprint.
+
+No new project entries; only link additions using the existing `links` array shape.
 
 ### Files affected
 
-- `src/components/TeamSection.tsx`
-- `src/content/hero.md`, `public/src/content/hero.md`
-- `src/content/publications.md`, `public/src/content/publications.md`
-- Any codebase reference to "in-training" (scan)
+- `src/content/research.md`, `public/src/content/research.md`
+- `src/components/ResearchSection.tsx` (card titles/descriptions currently hardcoded — update to match)
+- `src/pages/Projects.tsx`
 
 ### Out of scope
 
-Topic descriptions, tags, and thesis links for the three new students (placeholders now, fill in when known).
+- Publications list itself (already refreshed last turn).
+- Adding new projects beyond the reorder/link additions.
+- Visual redesign of cards.
+
+### Please confirm before I implement
+
+1. OK with the four rewritten focus cards above, or do you want different groupings (e.g. keep "AI in Medical Imaging" as a card)?
+2. OK to fully hide the highlight chips on Projects, or would you rather keep them only on the top 2 (SynthRAD2025, COBRA2026)?
+3. Any other 2025–2026 paper you'd like featured on a specific project card that isn't listed above?
