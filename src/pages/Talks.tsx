@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { ArrowLeft, Calendar, MapPin, ExternalLink, GraduationCap, Users, Award, Monitor, Presentation } from 'lucide-react';
+import { ArrowLeft, Calendar, MapPin, ExternalLink, GraduationCap, Users, Award, Monitor, Presentation, Star } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -103,6 +103,8 @@ const Talks = () => {
 
   const getTypeColor = (type: string) => {
     switch (type.toLowerCase()) {
+      case 'keynote':
+        return 'bg-rose-100 text-rose-800 hover:bg-rose-200';
       case 'educational':
         return 'bg-blue-100 text-blue-800 hover:bg-blue-200';
       case 'seminar':
@@ -118,6 +120,8 @@ const Talks = () => {
 
   const getTypeIcon = (type: string) => {
     switch (type.toLowerCase()) {
+      case 'keynote':
+        return <Star className="h-4 w-4" />;
       case 'educational':
         return <GraduationCap className="h-4 w-4" />;
       case 'seminar':
@@ -130,6 +134,7 @@ const Talks = () => {
         return <Presentation className="h-4 w-4" />;
     }
   };
+
 
   // Stats calculation
   const stats = useMemo(() => {
