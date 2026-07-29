@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, Calendar, MapPin, ExternalLink, GraduationCap, Users, Award, Monitor, Presentation, Star } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -7,6 +8,20 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useMarkdownContent } from '@/utils/markdownLoader';
 import Header from '@/components/Header';
 import BackToTop from '@/components/BackToTop';
+
+const SITE_URL = 'https://matteo-maspero.lovable.app';
+const PAGE_TITLE = 'Invited Talks — Matteo Maspero';
+const PAGE_DESCRIPTION =
+  'Invited talks, keynotes, seminars, and educational sessions by Matteo Maspero on AI, deep learning, and adaptive radiotherapy.';
+
+const parseDateString = (s: string): string | undefined => {
+  const iso = s.match(/\d{4}-\d{2}-\d{2}/);
+  if (iso) return iso[0];
+  const d = new Date(s);
+  if (!isNaN(d.getTime())) return d.toISOString().slice(0, 10);
+  const y = s.match(/\d{4}/);
+  return y ? y[0] : undefined;
+};
 
 interface Talk {
   title: string;
@@ -166,10 +181,45 @@ const Talks = () => {
     );
   }
 
+  const eventsJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: talks.map((t, i) => {
+      const startDate = parseDateString(t.date);
+      return {
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'Event',
+          name: t.title,
+          ...(startDate ? { startDate } : {}),
+          location: { '@type': 'Place', name: `${t.event}, ${t.location}` },
+          superEvent: { '@type': 'Event', name: t.event },
+          eventAttendanceMode:
+            t.type.toLowerCase() === 'online education'
+              ? 'https://schema.org/OnlineEventAttendanceMode'
+              : 'https://schema.org/OfflineEventAttendanceMode',
+          eventStatus: 'https://schema.org/EventScheduled',
+          performer: { '@type': 'Person', name: 'Matteo Maspero' },
+          ...(t.url ? { url: t.url } : {}),
+        },
+      };
+    }),
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>{PAGE_TITLE}</title>
+        <meta name="description" content={PAGE_DESCRIPTION} />
+        <link rel="canonical" href={`${SITE_URL}/talks`} />
+        <meta property="og:title" content={PAGE_TITLE} />
+        <meta property="og:description" content={PAGE_DESCRIPTION} />
+        <meta property="og:url" content={`${SITE_URL}/talks`} />
+        <script type="application/ld+json">{JSON.stringify(eventsJsonLd)}</script>
+      </Helmet>
       <Header />
-      <div className="max-w-5xl mx-auto px-4 py-12 pt-24">
+      <main className="max-w-5xl mx-auto px-4 py-12 pt-24">
         {/* Back navigation */}
         <Link 
           to="/" 
@@ -184,7 +234,7 @@ const Talks = () => {
           <h1 className="text-4xl font-bold mb-2" style={{ color: "#0050B2" }}>
             Invited Talks
           </h1>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-foreground text-lg">
             {talks.length} invited talks, educational sessions, and seminars
           </p>
         </div>
@@ -193,19 +243,19 @@ const Talks = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <div className="bg-primary/5 rounded-lg p-4 text-center">
             <div className="text-2xl font-bold text-primary">{stats.total}</div>
-            <div className="text-sm text-muted-foreground">Total Talks</div>
+            <div className="text-sm text-foreground">Total Talks</div>
           </div>
           <div className="bg-blue-50 rounded-lg p-4 text-center">
-            <div className="text-2xl font-bold text-blue-600">{stats.educational}</div>
-            <div className="text-sm text-muted-foreground">Educational</div>
+            <div className="text-2xl font-bold text-blue-800">{stats.educational}</div>
+            <div className="text-sm text-foreground">Educational</div>
           </div>
           <div className="bg-green-50 rounded-lg p-4 text-center">
-            <div className="text-2xl font-bold text-green-600">{stats.seminars}</div>
-            <div className="text-sm text-muted-foreground">Seminars</div>
+            <div className="text-2xl font-bold text-green-800">{stats.seminars}</div>
+            <div className="text-sm text-foreground">Seminars</div>
           </div>
           <div className="bg-amber-50 rounded-lg p-4 text-center">
-            <div className="text-2xl font-bold text-amber-600">{stats.conferences}</div>
-            <div className="text-sm text-muted-foreground">Conferences</div>
+            <div className="text-2xl font-bold text-amber-800">{stats.conferences}</div>
+            <div className="text-sm text-foreground">Conferences</div>
           </div>
         </div>
 
@@ -288,7 +338,7 @@ const Talks = () => {
             No talks found for the selected filter.
           </div>
         )}
-      </div>
+      </main>
       <BackToTop />
     </div>
   );
