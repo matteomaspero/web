@@ -47,32 +47,57 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#research" className="text-white/70 hover:text-white transition-colors inline-flex items-center gap-2">
+                <Link to="/#research" className="text-white/70 hover:text-white transition-colors inline-flex items-center gap-2">
                   <FileText className="h-4 w-4" />
-                  Research Areas
-                </a>
+                  Research
+                </Link>
               </li>
               <li>
-                <a href="#teaching" className="text-white/70 hover:text-white transition-colors inline-flex items-center gap-2">
+                <Link to="/#supervision" className="text-white/70 hover:text-white transition-colors inline-flex items-center gap-2">
+                  <Users className="h-4 w-4" />
+                  Supervision
+                </Link>
+              </li>
+              <li>
+                <Link to="/#teaching" className="text-white/70 hover:text-white transition-colors inline-flex items-center gap-2">
                   <GraduationCap className="h-4 w-4" />
                   Teaching
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#publications" className="text-white/70 hover:text-white transition-colors inline-flex items-center gap-2">
+                <Link to="/publications" className="text-white/70 hover:text-white transition-colors inline-flex items-center gap-2">
                   <BookOpen className="h-4 w-4" />
                   Publications
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#talks" className="text-white/70 hover:text-white transition-colors">
+                <Link to="/talks" className="text-white/70 hover:text-white transition-colors inline-flex items-center gap-2">
+                  <Mic className="h-4 w-4" />
                   Talks
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#contact" className="text-white/70 hover:text-white transition-colors">
+                <Link to="/projects" className="text-white/70 hover:text-white transition-colors inline-flex items-center gap-2">
+                  <FolderKanban className="h-4 w-4" />
+                  Projects
+                </Link>
+              </li>
+              <li>
+                <Link to="/#awards" className="text-white/70 hover:text-white transition-colors inline-flex items-center gap-2">
+                  <Award className="h-4 w-4" />
+                  Awards
+                </Link>
+              </li>
+              <li>
+                <Link to="/#editorial" className="text-white/70 hover:text-white transition-colors inline-flex items-center gap-2">
+                  <BookMarked className="h-4 w-4" />
+                  Editorial
+                </Link>
+              </li>
+              <li>
+                <Link to="/#contact" className="text-white/70 hover:text-white transition-colors">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

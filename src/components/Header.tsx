@@ -28,9 +28,9 @@ const Header = () => {
       }`}
     >
       <div className="section-container flex justify-between items-center">
-        <a href="#hero" style={{ color: "#0050B2" }} className="font-serif text-xl md:text-2xl font-bold">
+        <Link to="/" style={{ color: "#0050B2" }} className="font-serif text-xl md:text-2xl font-bold">
           Matteo Maspero
-        </a>
+        </Link>
         
         <div className="md:hidden">
           <Button 
@@ -49,14 +49,14 @@ const Header = () => {
           <ul className="flex flex-col md:flex-row md:items-center gap-1 md:gap-1">
             {['Research', 'Supervision', 'Teaching', 'Awards', 'Editorial', 'Contact'].map((item) => (
               <li key={item}>
-                <a 
-                  href={`#${item.toLowerCase()}`}
+                <Link
+                  to={`/#${item.toLowerCase()}`}
                   style={{ color: "#0050B2" }}
                   className="block px-4 py-2 hover:text-teal transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item}
-                </a>
+                </Link>
               </li>
             ))}
             {[
