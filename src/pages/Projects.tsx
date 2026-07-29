@@ -1,10 +1,16 @@
 import { ArrowLeft, ExternalLink, FileText, Database, Calendar, Users } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "@/components/Header";
 import BackToTop from "@/components/BackToTop";
+
+const SITE_URL = "https://matteo-maspero.lovable.app";
+const PAGE_TITLE = "Research Projects — Matteo Maspero";
+const PAGE_DESCRIPTION =
+  "Major research initiatives led by Matteo Maspero: SynthRAD, COBRA, TrackRAD, DLinRT.eu, AIinRT, EduPlan-RT, and AI-based treatment planning.";
 
 interface Project {
   id: string;
@@ -205,6 +211,18 @@ const linkIcons = {
 const Projects = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Header />
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>{PAGE_TITLE}</title>
+        <meta name="description" content={PAGE_DESCRIPTION} />
+        <link rel="canonical" href={`${SITE_URL}/projects`} />
+        <meta property="og:title" content={PAGE_TITLE} />
+        <meta property="og:description" content={PAGE_DESCRIPTION} />
+        <meta property="og:url" content={`${SITE_URL}/projects`} />
+      </Helmet>
       <Header />
 
       {/* Main Content */}
