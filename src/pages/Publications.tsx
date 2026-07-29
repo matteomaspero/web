@@ -491,7 +491,7 @@ const Publications = () => {
             )}
           </TabsContent>
         </Tabs>
-      </div>
+      </main>
       <BackToTop />
     </div>
   );
