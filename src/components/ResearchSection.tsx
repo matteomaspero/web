@@ -11,23 +11,23 @@ const ResearchSection = () => {
   
   const researchAreas = [
     {
-      title: "AI in Medical Imaging",
-      description: "Deep learning methods for medical image segmentation in radiation therapy.",
-      icon: <FileText className="h-10 w-10" style={{ color: "#0050B2" }} />
-    },
-    {
       title: "Adaptive Radiotherapy",
-      description: "Developing methods to facilitate online and offline adaptive radiotherapy.",
+      description: "Online and offline MR-guided adaptation workflows enabling daily plan re-optimisation.",
       icon: <Book className="h-10 w-10" style={{ color: "#0050B2" }} />
     },
     {
       title: "Image Synthesis",
-      description: "Synthetic CT generation for MRI-only radiotherapy and CBCT-based treatment planning.",
+      description: "Synthetic CT from MRI and CBCT for MRI-only and CBCT-guided treatment planning (SynthRAD initiative).",
       icon: <BookOpen className="h-10 w-10" style={{ color: "#0050B2" }} />
     },
     {
+      title: "AI for Segmentation & Registration",
+      description: "Robust auto-contouring and deformable registration across anatomies and vendors.",
+      icon: <FileText className="h-10 w-10" style={{ color: "#0050B2" }} />
+    },
+    {
       title: "AI-based Treatment Planning",
-      description: "Deep learning approaches for automated radiotherapy treatment planning, including dose prediction and plan automation.",
+      description: "Dose prediction and plan automation, from research prototypes to clinical translation.",
       icon: <Sparkles className="h-10 w-10" style={{ color: "#0050B2" }} />
     }
   ];

@@ -24,6 +24,25 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: "synthrad2025",
+    title: "SynthRAD2025",
+    description: "Expanded grand challenge on synthetic CT generation",
+    longDescription: "Building on the success of SynthRAD2023, this expanded challenge includes multi-vendor MRI data, CBCT-to-CT synthesis for both photon and particle therapy applications. The challenge aims to advance the field of MRI-only and CBCT-based radiotherapy planning.",
+    role: "Lead Organizer",
+    status: "active",
+    year: "2025",
+    links: [
+      { label: "Challenge Site", url: "https://synthrad2025.grand-challenge.org/", icon: "site" },
+      { label: "Challenge Report (2026)", url: "https://arxiv.org/abs/2605.13555", icon: "paper" },
+      { label: "Dataset Paper (Med Phys 2025)", url: "https://doi.org/10.1002/mp.17981", icon: "dataset" }
+    ],
+    highlights: [
+      "Multi-vendor MRI data",
+      "CBCT-to-CT synthesis",
+      "Particle therapy applications"
+    ]
+  },
+  {
     id: "cobra2026",
     title: "COBRA2026",
     description: "Grand challenge on CBCT reconstruction from sinograms using deep learning",
@@ -90,21 +109,21 @@ const projects: Project[] = [
     ]
   },
   {
-    id: "synthrad2025",
-    title: "SynthRAD2025",
-    description: "Expanded grand challenge on synthetic CT generation",
-    longDescription: "Building on the success of SynthRAD2023, this expanded challenge includes multi-vendor MRI data, CBCT-to-CT synthesis for both photon and particle therapy applications. The challenge aims to advance the field of MRI-only and CBCT-based radiotherapy planning.",
-    role: "Lead Organizer",
-    status: "active",
-    year: "2025",
+    id: "dlinrt",
+    title: "DLinRT.eu",
+    description: "Product register for deep learning in radiotherapy",
+    longDescription: "A comprehensive product register cataloguing deep learning solutions and quality assurance tools for radiotherapy. The platform serves as the leading resource for the radiotherapy community, featuring 69+ documented deep learning applications and providing guidance on clinical implementation.",
+    role: "Creator & Administrator",
+    status: "ongoing",
+    year: "2020-Present",
     links: [
-      { label: "Challenge Site", url: "https://synthrad2025.grand-challenge.org/", icon: "site" },
-      { label: "arXiv Preprint", url: "https://doi.org/10.48550/arXiv.2502.17609", icon: "paper" }
+      { label: "Website", url: "https://dlinrt.eu/", icon: "site" },
+      { label: "About", url: "https://dlinrt.eu/about", icon: "site" }
     ],
     highlights: [
-      "Multi-vendor MRI data",
-      "CBCT-to-CT synthesis",
-      "Particle therapy applications"
+      "69+ deep learning products catalogued",
+      "QA tools and guidelines",
+      "Community resource"
     ]
   },
   {
@@ -136,30 +155,13 @@ const projects: Project[] = [
     year: "2025",
     links: [
       { label: "Challenge Site", url: "https://trackrad2025.grand-challenge.org/", icon: "site" },
+      { label: "Challenge Report (MedIA 2026)", url: "https://doi.org/10.1016/j.media.2026.104134", icon: "paper" },
       { label: "arXiv Preprint", url: "https://doi.org/10.48550/arXiv.2503.19119", icon: "paper" }
     ],
     highlights: [
       "6 international centers",
       "0.35T and 1.5T MRI-linacs",
       "Real-time tracking focus"
-    ]
-  },
-  {
-    id: "dlinrt",
-    title: "DLinRT.eu",
-    description: "Product register for deep learning in radiotherapy",
-    longDescription: "A comprehensive product register cataloguing deep learning solutions and quality assurance tools for radiotherapy. The platform serves as the leading resource for the radiotherapy community, featuring 69+ documented deep learning applications and providing guidance on clinical implementation.",
-    role: "Creator & Administrator",
-    status: "ongoing",
-    year: "2020-Present",
-    links: [
-      { label: "Website", url: "https://dlinrt.eu/", icon: "site" },
-      { label: "About", url: "https://dlinrt.eu/about", icon: "site" }
-    ],
-    highlights: [
-      "69+ deep learning products catalogued",
-      "QA tools and guidelines",
-      "Community resource"
     ]
   }
 ];
@@ -236,15 +238,8 @@ const Projects = () => {
                     <span className="text-muted-foreground">{project.role}</span>
                   </div>
 
-                  {project.highlights && (
-                    <div className="flex flex-wrap gap-2">
-                      {project.highlights.map((highlight, index) => (
-                        <Badge key={index} variant="secondary" className="text-xs">
-                          {highlight}
-                        </Badge>
-                      ))}
-                    </div>
-                  )}
+
+
 
                   <div className="flex flex-wrap gap-3 pt-2">
                     {project.links.map((link, index) => {
