@@ -1,8 +1,8 @@
 ## Invited Talks
 
 ### AI for adaptive radiotherapy
-MICCAI 2026 – MIAT Workshop - October 2026 - Strasbourg, France - Keynote
-https://conferences.miccai.org/2026/
+MICCAI 2026 – MIART Workshop (Medical Image AI in Radiation Therapy) - October 2026 - Daejeon, South Korea - Keynote
+https://miart-workshop.github.io/
 
 ### AI in adaptive radiotherapy
 Time to Adapt – Adaptive School for Medical Physicists - September 2026 - Olbia, Italy - Educational
@@ -13,12 +13,13 @@ ESTRO 2026 - May 2026 - Copenhagen, Denmark - Best Proffered Papers
 https://www.estro.org/Congresses/ESTRO-2026
 
 ### How will Artificial Intelligence change my clinical practice?
-ESTRO 2026 – Interdisciplinary Pre-meeting Course - May 2026 - Copenhagen, Denmark - Educational
+ESTRO 2026 – Physics Pre-meeting Course - May 2026 - Copenhagen, Denmark - Educational
 https://www.estro.org/Congresses/ESTRO-2026
 
 ### AI in radiotherapy: an overview
 SSRMP – Swiss Society of Radiobiology and Medical Physics - March 2026 - Switzerland - Educational
 https://ssrpm.ch/
+
 
 ### Physics-informed neural networks for sCT generation and beyond
 ESTRO 2025 - May 2025 - Vienna, Austria - Educational
