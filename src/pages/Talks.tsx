@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, Calendar, MapPin, ExternalLink, GraduationCap, Users, Award, Monitor, Presentation, Star } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -7,6 +8,20 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useMarkdownContent } from '@/utils/markdownLoader';
 import Header from '@/components/Header';
 import BackToTop from '@/components/BackToTop';
+
+const SITE_URL = 'https://matteo-maspero.lovable.app';
+const PAGE_TITLE = 'Invited Talks — Matteo Maspero';
+const PAGE_DESCRIPTION =
+  'Invited talks, keynotes, seminars, and educational sessions by Matteo Maspero on AI, deep learning, and adaptive radiotherapy.';
+
+const parseDateString = (s: string): string | undefined => {
+  const iso = s.match(/\d{4}-\d{2}-\d{2}/);
+  if (iso) return iso[0];
+  const d = new Date(s);
+  if (!isNaN(d.getTime())) return d.toISOString().slice(0, 10);
+  const y = s.match(/\d{4}/);
+  return y ? y[0] : undefined;
+};
 
 interface Talk {
   title: string;
