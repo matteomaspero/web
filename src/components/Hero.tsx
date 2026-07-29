@@ -134,6 +134,10 @@ const Hero = () => {
               <img 
                 src={profileImageUrl} 
                 alt="Matteo Maspero" 
+                width={800}
+                height={1000}
+                fetchPriority="high"
+                decoding="async"
                 className="w-full h-[500px] object-cover"
               />
               <div className="absolute inset-0 bg-navy/20" />
