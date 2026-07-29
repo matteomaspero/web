@@ -1,12 +1,12 @@
 ## Invited Talks
 
-### AI for adaptive radiotherapy
+### Image synthesis in radiotherapy: state-of-the-art, clinical integration, and future directions
 MICCAI 2026 – MIART Workshop (Medical Image AI in Radiation Therapy) - October 2026 - Daejeon, South Korea - Keynote
 https://miart-workshop.github.io/
 
-### AI in adaptive radiotherapy
+### AI for medical physicists: basic principles
 Time to Adapt – Adaptive School for Medical Physicists - September 2026 - Olbia, Italy - Educational
-https://www.corsi-ecm.org/time-to-adapt-adaptive-school-for-medical-physicists/85860.html
+https://materolbia.com/wp-content/uploads/Olbia-10-12-September-2026-4.pdf
 
 ### Generating synthetic computed tomography for radiotherapy: SynthRAD2025 challenge report
 ESTRO 2026 - May 2026 - Copenhagen, Denmark - Best Proffered Papers
