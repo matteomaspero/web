@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { ArrowLeft, ExternalLink, Download, LayoutGrid, Table as TableIcon, Search, ArrowUpDown } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardTitle } from '@/components/ui/card';
@@ -10,6 +11,11 @@ import { useMarkdownContent } from '@/utils/markdownLoader';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import BackToTop from '@/components/BackToTop';
+
+const SITE_URL = 'https://matteo-maspero.lovable.app';
+const PAGE_TITLE = 'Publications — Matteo Maspero';
+const PAGE_DESCRIPTION =
+  'Peer-reviewed publications by Matteo Maspero on deep learning, MRI-guided radiotherapy, synthetic CT, image registration, and adaptive radiotherapy.';
 
 interface Publication {
   title: string;
@@ -122,18 +128,6 @@ const Publications = () => {
   const [view, setView] = useState<'cards' | 'table'>('cards');
   const { content, isLoading } = useMarkdownContent('/src/content/publications.md');
 
-  useEffect(() => {
-    document.title = 'Publications — Matteo Maspero | 54+ peer-reviewed papers in AI for radiotherapy';
-    const desc =
-      'Complete publication list of Matteo Maspero: peer-reviewed journal articles, conference proceedings, and book chapters on deep learning, MRI-guided radiotherapy, synthetic CT, and image registration.';
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement('meta');
-      meta.setAttribute('name', 'description');
-      document.head.appendChild(meta);
-    }
-    meta.setAttribute('content', desc);
-  }, []);
 
   const publications = useMemo<Publication[]>(() => {
     if (!content) return [];
@@ -217,9 +211,17 @@ const Publications = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>{PAGE_TITLE}</title>
+        <meta name="description" content={PAGE_DESCRIPTION} />
+        <link rel="canonical" href={`${SITE_URL}/publications`} />
+        <meta property="og:title" content={PAGE_TITLE} />
+        <meta property="og:description" content={PAGE_DESCRIPTION} />
+        <meta property="og:url" content={`${SITE_URL}/publications`} />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      </Helmet>
       <Header />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <div className="section-container py-8 pt-24">
+      <main className="section-container py-8 pt-24">
         <Link
           to="/"
           className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors"
