@@ -75,4 +75,4 @@ Deep Learning in Radiotherapy Workshop 2019 - February 2019 - UMC Utrecht, Nethe
 http://www.dlinrt.org/2019/index.html
 
 ### MR-only Radiotherapy: status and perspectives
-Seminar at Universita degli Studi di Milano - November 2018 - Milan, Italy - Seminar
+Seminar at Università degli Studi di Milano - November 2018 - Milan, Italy - Seminar
