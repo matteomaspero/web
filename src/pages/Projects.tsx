@@ -238,15 +238,8 @@ const Projects = () => {
                     <span className="text-muted-foreground">{project.role}</span>
                   </div>
 
-                  {project.highlights && (
-                    <div className="flex flex-wrap gap-2">
-                      {project.highlights.map((highlight, index) => (
-                        <Badge key={index} variant="secondary" className="text-xs">
-                          {highlight}
-                        </Badge>
-                      ))}
-                    </div>
-                  )}
+
+
 
                   <div className="flex flex-wrap gap-3 pt-2">
                     {project.links.map((link, index) => {
