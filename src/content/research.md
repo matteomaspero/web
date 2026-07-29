@@ -1,23 +1,19 @@
 
 ## Research Focus
 
-### AI in Medical Imaging
-Deep learning methods for medical image segmentation in radiation therapy.
-
 ### Adaptive Radiotherapy
-Developing methods to facilitate online and offline adaptive radiotherapy.
+Online and offline MR-guided adaptation workflows enabling daily plan re-optimisation.
 
 ### Image Synthesis
-Synthetic CT generation for MRI-only radiotherapy and CBCT-based treatment planning.
+Synthetic CT from MRI and CBCT for MRI-only and CBCT-guided treatment planning (SynthRAD initiative).
+
+### AI for Segmentation & Registration
+Robust auto-contouring and deformable registration across anatomies and vendors.
 
 ### AI-based Treatment Planning
-Deep learning approaches for automated radiotherapy treatment planning, including dose prediction and plan automation.
+Dose prediction and plan automation, from research prototypes to clinical translation.
 
 ## Current Projects
 
-### AI for Radiotherapy Planning
-Developing AI methods to improve radiation therapy planning for head and neck cancer patients.
-
-- Auto-segmentation of organs at risk
-- MR-based treatment planning
-- Dose prediction models
+### Clinical translation for head-and-neck and paediatric radiotherapy
+Ongoing work translating AI-driven segmentation, synthesis, and planning tools into clinical workflows, with emphasis on multi-centre validation and paediatric applications.
