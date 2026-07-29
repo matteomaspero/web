@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, MapPin, ArrowRight, GraduationCap, Users, Award, Monitor, Presentation } from "lucide-react";
+import { Calendar, MapPin, ArrowRight, GraduationCap, Users, Award, Monitor, Presentation, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useMarkdownContent } from '@/utils/markdownLoader';
 
@@ -53,6 +53,8 @@ const TalksSection = () => {
 
   const getTypeColor = (type: string) => {
     switch (type.toLowerCase()) {
+      case 'keynote':
+        return 'bg-rose-100 text-rose-800';
       case 'educational':
         return 'bg-blue-100 text-blue-800';
       case 'seminar':
@@ -68,6 +70,8 @@ const TalksSection = () => {
 
   const getTypeIcon = (type: string) => {
     switch (type.toLowerCase()) {
+      case 'keynote':
+        return <Star className="h-4 w-4" />;
       case 'educational':
         return <GraduationCap className="h-4 w-4" />;
       case 'seminar':
@@ -80,6 +84,7 @@ const TalksSection = () => {
         return <Presentation className="h-4 w-4" />;
     }
   };
+
 
   return (
     <section id="talks" className="bg-white">

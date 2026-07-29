@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, ExternalLink, FileText, Tag, Star } from "lucide-react";
+import { GraduationCap, ExternalLink, FileText, Tag } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
