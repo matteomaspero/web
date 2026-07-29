@@ -93,6 +93,15 @@ const Hero = () => {
                 Google Scholar
               </a>
               <a 
+                href="https://openalex.org/authors/A5015345825" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm bg-muted rounded-full hover:bg-muted/80 transition-colors"
+              >
+                <ExternalLink className="h-3.5 w-3.5" />
+                OpenAlex
+              </a>
+              <a 
                 href="https://www.researchgate.net/profile/Matteo_Maspero" 
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -101,6 +110,7 @@ const Hero = () => {
                 <ExternalLink className="h-3.5 w-3.5" />
                 ResearchGate
               </a>
+
             </div>
             
             <div className="flex flex-wrap gap-3">
