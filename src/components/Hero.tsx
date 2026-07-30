@@ -9,7 +9,7 @@ import { useMarkdownContent } from '@/utils/markdownLoader';
 const Hero = () => {
   const { content, isLoading } = useMarkdownContent('src/content/hero.md');
   
-  const profileImageUrl = "https://cig-utrecht.org/img/people/mmasp.jpg";
+  const profileImageUrl = `${import.meta.env.BASE_URL}images/matteo-maspero.jpg`;
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center pt-16">
