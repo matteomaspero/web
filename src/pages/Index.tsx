@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import ValuesSection from "@/components/ValuesSection";
 import ResearchSection from "@/components/ResearchSection";
 import TeamSection from "@/components/TeamSection";
 import TeachingSection from "@/components/TeachingSection";
@@ -70,6 +71,7 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
+        <ValuesSection />
         <ResearchSection />
         <TeamSection />
         <TeachingSection />
