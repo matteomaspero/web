@@ -100,6 +100,7 @@ const AwardsSection = () => {
         </h2>
         
         {/* Research Grants */}
+        {grants.length > 0 && (
         <div className="mb-12">
           <h3 className="text-xl font-semibold mb-6 flex items-center gap-2" style={{ color: "#0050B2" }}>
             <Coins className="h-5 w-5" />
@@ -150,6 +151,8 @@ const AwardsSection = () => {
             ))}
           </div>
         </div>
+        )}
+
 
         {/* Awards & Fellowships */}
         <div>

@@ -1,7 +1,7 @@
 ## Invited Talks
 
 ### Image synthesis in radiotherapy: state-of-the-art, clinical integration, and future directions
-MICCAI 2026 – MIART Workshop (Medical Image AI in Radiation Therapy) - October 2026 - Daejeon, South Korea - Keynote
+MICCAI 2026 – MIART Workshop (Medical Image AI in Radiation Therapy) - October 2026 - Strasbourg, France - Keynote
 https://miart-workshop.github.io/
 
 ### AI for medical physicists: basic principles
@@ -26,7 +26,7 @@ ESTRO 2025 - May 2025 - Vienna, Austria - Educational
 https://www.estro.org/Congresses/ESTRO-2025
 
 
-### Deep learning for autocontoring
+### Deep learning for autocontouring
 Deep Learning in Radiotherapy Workshop 2025 - March 2025 - UMC Utrecht, Netherlands - Educational
 http://www.DLinRT.org
 
