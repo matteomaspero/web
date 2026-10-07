@@ -31,8 +31,12 @@ export const parseCvPublications = (md: string): CvPublication[] =>
 
 interface Word { w: string; bold: boolean }
 
+const toLatin1 = (t: string): string =>
+  t.replace(/χ/g, 'chi').replace(/[‐‑–—]/g, m => (m === '—' ? '-' : '-')).replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
+    .normalize('NFC').replace(/[^\x00-\xFF]/g, c => c.normalize('NFD').replace(/[^\x00-\xFF]/g, ''));
+
 const toWords = (text: string): Word[] =>
-  text.split(/(\*\*[^*]+\*\*)/).flatMap(part => {
+  toLatin1(text).split(/(\*\*[^*]+\*\*)/).flatMap(part => {
     const bold = part.startsWith('**');
     return part.replace(/\*\*/g, '').split(/\s+/).filter(Boolean).map(w => ({ w, bold }));
   });
@@ -57,6 +61,7 @@ export const generateCvPdf = async (): Promise<void> => {
       doc.setFont('helvetica', bold ? 'bold' : 'normal');
       const ww = doc.getTextWidth(w);
       const sp = doc.getTextWidth(' ');
+      if (/^[.,;:)]/.test(w) && cx > x) cx -= sp;
       if (cx > x && cx + ww > x + width) {
         cx = x;
         y += lh;
