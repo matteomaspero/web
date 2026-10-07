@@ -32,7 +32,7 @@ export const parseCvPublications = (md: string): CvPublication[] =>
 interface Word { w: string; bold: boolean }
 
 const toLatin1 = (t: string): string =>
-  t.replace(/χ/g, 'chi')
+  t.replace(/χ/g, 'chi').replace(/⊥/g, 'perp')
     .normalize('NFC').replace(/[^\x00-\xFF–—‘’“”•]/g, c => c.normalize('NFD').replace(/[^\x00-\xFF–—‘’“”•]/g, ''));
 
 const toWords = (text: string): Word[] =>
