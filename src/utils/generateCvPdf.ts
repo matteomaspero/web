@@ -32,8 +32,8 @@ export const parseCvPublications = (md: string): CvPublication[] =>
 interface Word { w: string; bold: boolean }
 
 const toLatin1 = (t: string): string =>
-  t.replace(/χ/g, 'chi').replace(/[‐‑–—]/g, m => (m === '—' ? '-' : '-')).replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
-    .normalize('NFC').replace(/[^\x00-\xFF]/g, c => c.normalize('NFD').replace(/[^\x00-\xFF]/g, ''));
+  t.replace(/χ/g, 'chi')
+    .normalize('NFC').replace(/[^\x00-\xFF–—‘’“”•]/g, c => c.normalize('NFD').replace(/[^\x00-\xFF–—‘’“”•]/g, ''));
 
 const toWords = (text: string): Word[] =>
   toLatin1(text).split(/(\*\*[^*]+\*\*)/).flatMap(part => {
