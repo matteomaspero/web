@@ -1,12 +1,12 @@
 ## Invited Talks
 
 ### Image synthesis in radiotherapy: state-of-the-art, clinical integration, and future directions
-MICCAI 2026 – MIART Workshop (Medical Image AI in Radiation Therapy) - October 2026 - Strasbourg, France - Keynote
+MICCAI 2026 – MIART Workshop (Medical Image AI in Radiation Therapy) - 1 October 2026 - Strasbourg, France - Keynote
 https://miart-workshop.github.io/
 
 ### AI for medical physicists: basic principles
-Time to Adapt – Adaptive School for Medical Physicists - September 2026 - Olbia, Italy - Educational
-https://materolbia.com/wp-content/uploads/Olbia-10-12-September-2026-4.pdf
+Time to Adapt – Adaptive School for Medical Physicists - 10–12 September 2026 - Olbia, Italy - Educational
+https://materolbia.com/news/congresso-fisica-medica/
 
 ### Generating synthetic computed tomography for radiotherapy: SynthRAD2025 challenge report
 ESTRO 2026 - May 2026 - Copenhagen, Denmark - Best Proffered Papers
@@ -15,6 +15,10 @@ https://www.estro.org/Congresses/ESTRO-2026
 ### How will Artificial Intelligence change my clinical practice?
 ESTRO 2026 – Physics Pre-meeting Course - May 2026 - Copenhagen, Denmark - Educational
 https://www.estro.org/Congresses/ESTRO-2026
+
+### AI in de radiotherapie: status en perspectief
+FMIR 2026 - 2 June 2026 - Turin, Italy - Educational
+https://fmir.kalcio-healthcare.nl/FMIR2026/session/3512495/ai-in-de-radiotherapie-status-en-perspectief
 
 ### AI in radiotherapy: an overview
 SSRMP – Swiss Society of Radiobiology and Medical Physics - March 2026 - Switzerland - Educational
