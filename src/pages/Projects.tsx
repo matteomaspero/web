@@ -57,12 +57,15 @@ const projects: Project[] = [
     status: "active",
     year: "2026",
     links: [
-      { label: "Challenge Site", url: "https://cobra2026.grand-challenge.org/", icon: "site" }
+      { label: "Challenge Site", url: "https://cobra2026.grand-challenge.org/", icon: "site" },
+      { label: "Dataset Paper (arXiv)", url: "https://arxiv.org/abs/2607.20037", icon: "paper" },
+      { label: "Dataset (Zenodo)", url: "https://zenodo.org/records/21322350", icon: "site" }
     ],
     highlights: [
       "Multi-vendor CBCT data",
       "Sinogram-to-image DL reconstruction",
-      "Radiotherapy applications"
+      "Radiotherapy applications",
+      "Final event at MIDL 2027"
     ]
   },
   {
@@ -79,7 +82,9 @@ const projects: Project[] = [
     ],
     highlights: [
       "1–2 April 2027, Utrecht",
-      "Call for Abstracts opens Sep 1, 2026",
+      "Abstract deadline: 1 Dec 2026",
+      "Registration open 1 Oct 2026 – 1 Mar 2027",
+      "Double-blind peer review, ~200 participants",
       "UMC Utrecht × Princess Máxima × DLinRT.eu"
     ]
   },
