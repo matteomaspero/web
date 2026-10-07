@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Menu } from 'lucide-react';
+import CvDownloadButton from '@/components/CvDownloadButton';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -77,6 +78,9 @@ const Header = () => {
                 </Link>
               </li>
             ))}
+            <li className="px-4 py-2 md:py-0">
+              <CvDownloadButton />
+            </li>
           </ul>
         </nav>
       </div>

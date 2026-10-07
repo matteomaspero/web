@@ -1,0 +1,1 @@
+- CV PDF is generated client-side (jspdf) from src/content/cv.ts plus src/content/publications.md, so the CV always matches the site's publication list.
